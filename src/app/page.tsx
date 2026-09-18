@@ -1,69 +1,200 @@
 import Image from "next/image";
+import Link from "next/link";
+import DoorIcon from "@/components/DoorIcon";
+import KeyIcon from "@/components/KeyIcon";
+import Divider from "@/components/Divider";
+import MandalaLogo from "@/components/MandalaLogo";
+import SiteFooter from "@/components/SiteFooter";
+
+const chiavi = [
+  {
+    titolo: "Counceling transpersonale",
+    descrizione:
+      "Uno spazio di ascolto autentico per comprenderti, sciogliere i blocchi interiori e ritrovare il tuo centro.",
+    href: "/counseling-transpersonale",
+  },
+  {
+    titolo: "Yoga Anukalana e meditazione",
+    descrizione:
+      "Movimento, respiro e presenza si uniscono per riportare equilibrio, vitalità e armonia nella tua vita.",
+    href: "/yoga-anukalana-meditazione",
+  },
+  {
+    titolo: "Mandala – arteterapia",
+    descrizione:
+      "Colori, simboli e geometrie sacre diventano strumenti per dare forma al tuo mondo interiore e favorire la trasformazione.",
+    href: "/mandala-arteterapia",
+  },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
+    <>
+      <main className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden">
         <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
+          src="/sfondo_pergamena.jpg"
+          alt=""
+          fill
           priority
+          className="object-cover -z-10"
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
+
+        <section className="flex flex-col items-center gap-4 text-center px-6 translate-y-6">
+          <h1 className="font-heading text-heading text-4xl font-semibold tracking-tight">
+            Mandala Interiore
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+          <p className="font-body italic text-xl max-w-md">
+            Ogni persona custodisce dentro di sé le risorse per stare bene.
+            <br />
+            A volte serve soltanto la chiave giusta per ritrovarle.
+          </p>
+        </section>
+
+        <a
+          href="#percorso"
+          className="group absolute bottom-4 flex flex-col items-center gap-2 font-heading text-sm font-semibold uppercase tracking-[0.03em]"
+        >
+          entra
+          <DoorIcon className="h-10 w-auto" />
+        </a>
+      </main>
+
+      <section
+        id="percorso"
+        className="flex h-screen flex-col items-center justify-center gap-8 overflow-hidden px-6 py-8 text-center"
+      >
+        <div className="font-body text-lg max-w-xl">
+          <p>Accompagno le persone a ritrovare l’equilibrio, chiarezza e presenza.</p>
+          <p className="italic">Scegli la chiave che senti più vicina.</p>
+          <p className="italic">
+            Insieme daremo forma a un percorso integrato che posssa accompagnari nel tuo cammino.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
+
+        <Divider className="text-heading h-4 w-40" />
+
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 max-w-3xl">
+          {chiavi.map((chiave) => (
+            <Link
+              key={chiave.titolo}
+              href={chiave.href}
+              className="group border-heading/20 flex cursor-pointer flex-col items-center gap-3 rounded-lg border bg-[url(/sfondo_card.jpg)] bg-cover bg-center px-5 py-6 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:border-heading/50 hover:shadow-lg"
+            >
+              <KeyIcon className="text-heading h-12 w-12 transition-transform duration-300 group-hover:scale-110" />
+              <h3 className="font-heading text-heading text-sm font-semibold uppercase tracking-[0.03em]">
+                {chiave.titolo}
+              </h3>
+              <p className="font-body text-base max-w-52">
+                {chiave.descrizione}
+              </p>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      <section
+        id="storia"
+        className="grid h-screen grid-cols-1 items-center justify-items-center gap-4 overflow-hidden px-6 py-8 md:grid-cols-2 md:gap-6 md:px-16"
+      >
+        <div className="border-heading/20 relative aspect-[4/5] h-56 shrink-0 overflow-hidden rounded-lg border md:h-80">
+          <Image
+            src="/placeholder_verticale.jpg"
+            alt="Descrizione della foto"
+            fill
+            className="object-cover"
+          />
+        </div>
+        <div className="flex max-w-md flex-col items-start gap-4 text-left">
+          <h2 className="font-heading text-heading text-3xl font-semibold tracking-wide">
+            Un cammino nato dall&rsquo;ascolto
+          </h2>
+          <p className="font-body italic text-xl">
+            Anche io, prima di accompagnare gli altri, ho attraversato la mia
+            porta.
+          </p>
+          <p className="font-body text-lg">
+            Da anni percorro un cammino di consapevolezza e trasformazione, intrecciando counseling,
+            arteterapia, yoga, meditazione e aromaterapia.
+          </p>
+          <p className="font-body text-lg">
+            Oggi desidero mettere ciò che ho incontrato e imparato lungo il mio percorso al servizio di chi
+            sente il bisogno di fermarsi, guardarsi dentro e ritrovarsi.
+          </p>
+
+          <div className="mt-2 flex flex-wrap gap-4">
+            <a
+              href="/la-mia-storia"
+              className="font-heading text-heading border-heading hover:bg-heading hover:text-background rounded-full border px-6 py-2 text-sm font-semibold uppercase tracking-[0.03em] transition-colors"
+            >
+              La mia storia
+            </a>
+            <a
+              href="#percorso"
+              className="font-heading bg-heading text-background border-heading hover:bg-transparent hover:text-heading rounded-full border px-6 py-2 text-sm font-semibold uppercase tracking-[0.03em] transition-colors"
+            >
+              Percorsi
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="mandala"
+        className="grid h-screen grid-cols-1 items-center justify-items-center gap-4 overflow-hidden px-6 py-8 md:grid-cols-2 md:gap-6 md:px-16"
+      >
+        <div className="order-2 flex max-w-md flex-col items-start gap-4 text-left md:order-1">
+          <h2 className="font-heading text-heading text-3xl font-semibold tracking-tight">
+            Il mandala come specchio
+          </h2>
+          <p className="font-body italic text-xl">
+            Ogni mandala che prende forma è un’espressione dell’anima. 
+          </p>
+          <p className="font-body text-lg">
+            Un linguaggio antico, attraverso cui
+            l’inconscio parla là dove le parole non riescono ad arrivare.
+          </p>
+          <p className="font-body text-lg">
+            Attraverso colori, simboli e geometrie
+            sacre, il mandala diventa uno strumento di ascolto profondo e di espressione autentica: un modo
+            per dare forma al proprio mondo interiore e accompagnare la trasformazione, ritornando al
+            proprio centro.
+          </p>
+
           <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/mandala"
+            className="font-heading text-heading border-heading hover:bg-heading hover:text-background mt-2 rounded-full border px-6 py-2 text-sm font-semibold uppercase tracking-[0.03em] transition-colors"
           >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
+            Mandala
           </a>
         </div>
-      </main>
-    </div>
+
+        <div className="border-heading/20 bg-heading/5 relative order-1 h-56 w-56 shrink-0 overflow-hidden rounded-full border md:order-2 md:h-80 md:w-80">
+          <Image
+            src="/placeholder_quadrato.jpg"
+            alt="Descrizione della foto"
+            fill
+            className="object-cover"
+          />
+        </div>
+      </section>
+
+      <section className="flex flex-col items-center gap-6 px-6 pt-8 pb-24 text-center">
+        <MandalaLogo className="text-heading h-16 w-16" />
+        <h2 className="font-heading text-heading text-3xl font-semibold tracking-tight">
+          Il tuo viaggio può iniziare ora
+        </h2>
+        <p className="font-body italic text-xl max-w-md">
+          Ogni porta si apre solo quando decidi di attraversarla.
+        </p>
+        <a
+          href="/contatti"
+          className="font-heading bg-heading text-background hover:bg-transparent hover:text-heading border-heading mt-2 rounded-full border px-8 py-3 text-sm font-semibold uppercase tracking-[0.03em] transition-colors"
+        >
+          Inizia il tuo viaggio
+        </a>
+      </section>
+
+      <SiteFooter />
+    </>
   );
 }
