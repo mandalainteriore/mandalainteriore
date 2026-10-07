@@ -1,10 +1,13 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 
 const mandala = Array.from({ length: 9 }, (_, i) => ({
   n: i + 1,
   titolo: `Titolo mandala ${i + 1}`,
+  // Segnaposto: sostituire con le foto dei mandala.
+  immagine: "/placeholder_quadrato.jpg",
 }));
 
 export default function MandalaGallery() {
@@ -19,16 +22,20 @@ export default function MandalaGallery() {
   return (
     <>
       <div className="grid w-full max-w-4xl grid-cols-1 gap-10 sm:grid-cols-3">
-        {mandala.map(({ n, titolo }) => (
+        {mandala.map(({ n, titolo, immagine }) => (
           <figure key={n} className="flex flex-col gap-3">
             <button
               onClick={() => setSelected(n)}
               aria-label={`Apri ${titolo}`}
-              className="border-heading/20 bg-heading/5 group aspect-square overflow-hidden rounded-lg border transition-all duration-300 hover:-translate-y-1 hover:border-heading/50 hover:shadow-lg cursor-pointer"
+              className="border-heading/20 bg-heading/5 group relative aspect-square overflow-hidden rounded-lg border transition-all duration-300 hover:-translate-y-1 hover:border-heading/50 hover:shadow-lg cursor-pointer"
             >
-              <div className="text-heading/40 font-heading flex h-full w-full items-center justify-center text-sm transition-transform duration-300 group-hover:scale-105">
-                {n}
-              </div>
+              <Image
+                src={immagine}
+                alt={titolo}
+                fill
+                sizes="(min-width: 896px) 290px, (min-width: 640px) 33vw, 100vw"
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+              />
             </button>
             <figcaption className="font-heading text-heading text-xs font-semibold sm:text-sm uppercase tracking-[0.03em]">
               {titolo}
@@ -65,10 +72,14 @@ export default function MandalaGallery() {
             onClick={(e) => e.stopPropagation()}
             className="flex w-full max-w-md flex-col items-center gap-4"
           >
-            <div className="bg-background flex aspect-square w-full items-center justify-center rounded-lg">
-              <span className="text-heading/40 font-heading text-2xl">
-                {selected}
-              </span>
+            <div className="bg-background relative aspect-square w-full overflow-hidden rounded-lg">
+              <Image
+                src={mandala[selected - 1].immagine}
+                alt={mandala[selected - 1].titolo}
+                fill
+                sizes="(min-width: 448px) 448px, 100vw"
+                className="object-cover"
+              />
             </div>
             <figcaption className="font-heading text-background text-base font-semibold uppercase tracking-[0.03em]">
               {mandala[selected - 1].titolo}
