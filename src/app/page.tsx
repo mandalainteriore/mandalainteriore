@@ -35,7 +35,7 @@ const chiavi: { titolo: string; descrizione: string; href: string; simbolo: Simb
 export default function Home() {
   return (
     <>
-      <main className="relative flex min-h-screen flex-col items-center justify-center overflow-hidden">
+      <main className="relative flex min-h-svh flex-col items-center justify-center overflow-hidden">
         <Image
           src="/sfondo_pergamena.jpg"
           alt=""

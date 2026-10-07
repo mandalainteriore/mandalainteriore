@@ -18,7 +18,7 @@ export async function generateMetadata({
   const evento = trovaEvento(slug);
   if (!evento) return {};
   return {
-    title: `${evento.titolo} · Mandala Interiore`,
+    title: evento.titolo,
     description: evento.descrizione,
   };
 }

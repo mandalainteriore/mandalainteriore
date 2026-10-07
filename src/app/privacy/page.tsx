@@ -3,7 +3,7 @@ import SiteFooter from "@/components/SiteFooter";
 import Divider from "@/components/Divider";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy · Mandala Interiore",
+  title: "Privacy Policy",
 };
 
 // Segnaposto evidenziato per i dati ancora da inserire.

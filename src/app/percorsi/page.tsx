@@ -7,7 +7,7 @@ import Divider from "@/components/Divider";
 export default function Percorsi() {
   return (
     <>
-      <main className="relative flex h-[90vh] flex-col items-center justify-center overflow-hidden">
+      <main className="relative flex h-[90svh] flex-col items-center justify-center overflow-hidden">
         <SfondoResponsive src="/sfondo_percorsi.jpg" srcMobile="/sfondo_percorsi_mobile.jpg" classeSenzaMobile="object-[15%_center] md:object-center" priority />
 
         <h1 className="font-heading text-heading text-4xl font-semibold tracking-tight text-center px-6">

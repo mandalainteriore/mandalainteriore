@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Cinzel, Cormorant_Garamond } from "next/font/google";
 import Navbar from "@/components/Navbar";
+import Loader from "@/components/Loader";
 import "./globals.css";
 
 const cinzel = Cinzel({
@@ -17,17 +18,21 @@ const cormorantGaramond = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "Mandala Interiore",
+  title: {
+    default: "Mandala Interiore - Roxana Zlate",
+    template: "%s · Mandala Interiore - Roxana Zlate",
+  },
   description: "Mandala Interiore",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
-      lang="en"
+      lang="it"
       className={`${cinzel.variable} ${cormorantGaramond.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <Loader />
         <Navbar />
         {children}
       </body>

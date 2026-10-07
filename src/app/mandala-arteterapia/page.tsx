@@ -28,7 +28,7 @@ const destinatari = [
 export default function MandalaArteterapia() {
   return (
     <>
-      <main className="relative flex h-[90vh] flex-col items-center justify-center overflow-hidden">
+      <main className="relative flex h-[90svh] flex-col items-center justify-center overflow-hidden">
         <SfondoResponsive src="/sfondo_chiave.jpg" srcMobile="/sfondo_chiave_mobile.jpg" priority />
 
         <h1 className="font-heading text-heading text-4xl font-semibold tracking-tight text-center px-6">
