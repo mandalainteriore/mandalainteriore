@@ -1,29 +1,34 @@
 import Image from "next/image";
 import Link from "next/link";
 import DoorIcon from "@/components/DoorIcon";
-import KeyIcon from "@/components/KeyIcon";
+import KeyIcon, { type Simbolo } from "@/components/KeyIcon";
 import Divider from "@/components/Divider";
 import MandalaLogo from "@/components/MandalaLogo";
 import SiteFooter from "@/components/SiteFooter";
+import EventiGrid from "@/components/EventiGrid";
+import { eventi } from "@/data/eventi";
 
-const chiavi = [
+const chiavi: { titolo: string; descrizione: string; href: string; simbolo: Simbolo }[] = [
   {
-    titolo: "Counceling transpersonale",
+    titolo: "Counseling transpersonale",
     descrizione:
       "Uno spazio di ascolto autentico per comprenderti, sciogliere i blocchi interiori e ritrovare il tuo centro.",
     href: "/counseling-transpersonale",
+    simbolo: "fiore-della-vita",
   },
   {
     titolo: "Yoga Anukalana e meditazione",
     descrizione:
       "Movimento, respiro e presenza si uniscono per riportare equilibrio, vitalità e armonia nella tua vita.",
     href: "/yoga-anukalana-meditazione",
+    simbolo: "pentagramma",
   },
   {
     titolo: "Mandala – arteterapia",
     descrizione:
       "Colori, simboli e geometrie sacre diventano strumenti per dare forma al tuo mondo interiore e favorire la trasformazione.",
     href: "/mandala-arteterapia",
+    simbolo: "esagramma",
   },
 ];
 
@@ -60,8 +65,26 @@ export default function Home() {
       </main>
 
       <section
+        id="eventi"
+        className="flex flex-col items-center gap-10 px-6 pt-16 md:pt-24 pb-12 text-center"
+      >
+        <div className="flex flex-col items-center gap-4">
+          <h2 className="font-heading text-heading text-3xl font-semibold tracking-tight">
+            Eventi
+          </h2>
+          <p className="font-body italic text-xl max-w-md">
+            Momenti di incontro, pratica e condivisione.
+          </p>
+        </div>
+
+        <Divider className="text-heading h-4 w-40" />
+
+        <EventiGrid eventi={eventi} />
+      </section>
+
+      <section
         id="percorso"
-        className="flex h-screen flex-col items-center justify-center gap-8 overflow-hidden px-6 py-8 text-center"
+        className="flex flex-col items-center gap-8 px-6 pt-12 pb-16 md:pb-24 text-center"
       >
         <div className="font-body text-lg max-w-xl">
           <p>Accompagno le persone a ritrovare l’equilibrio, chiarezza e presenza.</p>
@@ -80,7 +103,7 @@ export default function Home() {
               href={chiave.href}
               className="group border-heading/20 flex cursor-pointer flex-col items-center gap-3 rounded-lg border bg-[url(/sfondo_card.jpg)] bg-cover bg-center px-5 py-6 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:border-heading/50 hover:shadow-lg"
             >
-              <KeyIcon className="text-heading h-12 w-12 transition-transform duration-300 group-hover:scale-110" />
+              <KeyIcon simbolo={chiave.simbolo} className="text-heading h-20 w-auto transition-transform duration-300 group-hover:scale-110" />
               <h3 className="font-heading text-heading text-sm font-semibold uppercase tracking-[0.03em]">
                 {chiave.titolo}
               </h3>
@@ -94,7 +117,7 @@ export default function Home() {
 
       <section
         id="storia"
-        className="grid h-screen grid-cols-1 items-center justify-items-center gap-4 overflow-hidden px-6 py-8 md:grid-cols-2 md:gap-6 md:px-16"
+        className="grid grid-cols-1 items-center justify-items-center gap-8 px-6 py-16 md:h-screen md:grid-cols-2 md:overflow-hidden md:py-8 md:gap-6 md:px-16"
       >
         <div className="border-heading/20 relative aspect-[4/5] h-56 shrink-0 overflow-hidden rounded-lg border md:h-80">
           <Image
@@ -140,7 +163,7 @@ export default function Home() {
 
       <section
         id="mandala"
-        className="grid h-screen grid-cols-1 items-center justify-items-center gap-4 overflow-hidden px-6 py-8 md:grid-cols-2 md:gap-6 md:px-16"
+        className="grid grid-cols-1 items-center justify-items-center gap-8 px-6 py-16 md:h-screen md:grid-cols-2 md:overflow-hidden md:py-8 md:gap-6 md:px-16"
       >
         <div className="order-2 flex max-w-md flex-col items-start gap-4 text-left md:order-1">
           <h2 className="font-heading text-heading text-3xl font-semibold tracking-tight">
@@ -178,7 +201,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="flex flex-col items-center gap-6 px-6 pt-8 pb-24 text-center">
+      <section className="flex flex-col items-center gap-6 px-6 pt-8 pb-16 md:pb-24 text-center">
         <MandalaLogo className="text-heading h-16 w-16" />
         <h2 className="font-heading text-heading text-3xl font-semibold tracking-tight">
           Il tuo viaggio può iniziare ora

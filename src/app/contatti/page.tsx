@@ -1,27 +1,21 @@
-import Image from "next/image";
 import SiteFooter from "@/components/SiteFooter";
 import SubjectPicker from "@/components/SubjectPicker";
 import Divider from "@/components/Divider";
+import SfondoResponsive from "@/components/SfondoResponsive";
 import MandalaLogo from "@/components/MandalaLogo";
 
 export default function Contatti() {
   return (
     <>
       <main className="relative flex h-[90vh] flex-col items-center justify-center overflow-hidden">
-        <Image
-          src="/sfondo_la_mia_storia.jpg"
-          alt=""
-          fill
-          priority
-          className="object-cover -z-10"
-        />
+        <SfondoResponsive src="/sfondo_contatti.jpg" srcMobile="/sfondo_contatti_mobile.jpg" classeSenzaMobile="object-[15%_center] md:object-center" priority />
 
         <h1 className="font-heading text-heading text-4xl font-semibold tracking-tight text-center px-6">
           Inizia il tuo viaggio
         </h1>
       </main>
 
-      <section className="flex flex-col items-center gap-16 px-6 pt-24 pb-16 md:flex-row md:items-start md:justify-center md:gap-24 md:px-16">
+      <section className="flex flex-col items-center gap-16 px-6 pt-16 md:pt-24 pb-16 md:flex-row md:items-start md:justify-center md:gap-24 md:px-16">
         <div className="flex w-full max-w-sm flex-col gap-5 text-left">
           <SubjectPicker />
 
@@ -120,7 +114,9 @@ export default function Contatti() {
             </h2>
             <div className="text-heading flex gap-4">
               <a
-                href="#"
+                href="https://www.instagram.com/mandala.univers/"
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label="Instagram"
                 className="hover:opacity-70 transition-opacity"
               >

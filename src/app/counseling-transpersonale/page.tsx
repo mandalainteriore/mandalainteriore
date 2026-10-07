@@ -1,26 +1,20 @@
-import Image from "next/image";
 import MandalaLogo from "@/components/MandalaLogo";
 import SiteFooter from "@/components/SiteFooter";
+import SfondoResponsive from "@/components/SfondoResponsive";
 import Divider from "@/components/Divider";
 
 export default function CounselingTranspersonale() {
   return (
     <>
       <main className="relative flex h-[90vh] flex-col items-center justify-center overflow-hidden">
-        <Image
-          src="/sfondo_la_mia_storia.jpg"
-          alt=""
-          fill
-          priority
-          className="object-cover -z-10"
-        />
+        <SfondoResponsive src="/sfondo_chiave.jpg" srcMobile="/sfondo_chiave_mobile.jpg" priority />
 
         <h1 className="font-heading text-heading text-4xl font-semibold tracking-tight text-center px-6">
           Counseling transpersonale
         </h1>
       </main>
 
-      <section className="flex flex-col items-center gap-4 px-6 pt-24 pb-12 text-center">
+      <section className="flex flex-col items-center gap-4 px-6 pt-16 md:pt-24 pb-12 text-center">
         <h2 className="font-heading text-heading text-3xl font-semibold tracking-wide">
           Cos&rsquo;è
         </h2>
@@ -59,13 +53,13 @@ export default function CounselingTranspersonale() {
         <Divider className="text-heading h-4 w-40" />
       </section>
 
-      <section className="flex flex-col items-center gap-6 px-6 pt-8 pb-24 text-center">
+      <section className="flex flex-col items-center gap-6 px-6 pt-8 pb-16 md:pb-24 text-center">
         <MandalaLogo className="text-heading h-16 w-16" />
         <h2 className="font-heading text-heading text-3xl font-semibold tracking-tight">
           Il tuo viaggio può iniziare ora
         </h2>
         <p className="font-body italic text-xl max-w-md">
-          Ogni porta si apre solo quando decidi di attraversarla.
+          Ogni chiave apre una possibilità.
         </p>
         <a
           href="/contatti"

@@ -1,26 +1,21 @@
 import Image from "next/image";
 import MandalaLogo from "@/components/MandalaLogo";
 import SiteFooter from "@/components/SiteFooter";
+import SfondoResponsive from "@/components/SfondoResponsive";
 import Divider from "@/components/Divider";
 
 export default function Percorsi() {
   return (
     <>
       <main className="relative flex h-[90vh] flex-col items-center justify-center overflow-hidden">
-        <Image
-          src="/sfondo_la_mia_storia.jpg"
-          alt=""
-          fill
-          priority
-          className="object-cover -z-10"
-        />
+        <SfondoResponsive src="/sfondo_percorsi.jpg" srcMobile="/sfondo_percorsi_mobile.jpg" classeSenzaMobile="object-[15%_center] md:object-center" priority />
 
         <h1 className="font-heading text-heading text-4xl font-semibold tracking-tight text-center px-6">
           Percorsi
         </h1>
       </main>
 
-      <section className="flex flex-col items-center gap-4 px-6 pt-24 pb-12 text-center">
+      <section className="flex flex-col items-center gap-4 px-6 pt-16 md:pt-24 pb-12 text-center">
         <p className="font-body italic text-xl max-w-xl">
           Ogni cammino ha una forma diversa: solitario, condiviso, o intrecciato
           alla vita di un&rsquo;organizzazione.
@@ -35,7 +30,7 @@ export default function Percorsi() {
         <Divider className="text-heading h-4 w-40" />
       </section>
 
-      <section className="grid grid-cols-1 items-center gap-10 px-6 py-16 md:grid-cols-2 md:gap-16 md:px-16">
+      <section className="grid grid-cols-1 items-center gap-10 px-6 py-10 md:grid-cols-2 md:py-16 md:gap-16 md:px-16">
         <div className="border-heading/20 bg-heading/5 relative aspect-[4/5] w-full max-w-xs justify-self-center overflow-hidden rounded-lg border">
           <Image
             src="/placeholder_verticale.jpg"
@@ -67,8 +62,8 @@ export default function Percorsi() {
         </div>
       </section>
 
-      <section className="grid grid-cols-1 items-center gap-10 px-6 py-16 md:grid-cols-2 md:gap-16 md:px-16">
-        <div className="flex max-w-md flex-col items-start gap-4 text-left md:justify-self-end">
+      <section className="grid grid-cols-1 items-center gap-10 px-6 py-10 md:grid-cols-2 md:py-16 md:gap-16 md:px-16">
+        <div className="order-2 flex max-w-md flex-col items-start gap-4 text-left md:order-1 md:justify-self-end">
           <h2 className="font-heading text-heading text-3xl font-semibold tracking-wide">
             Di gruppo
           </h2>
@@ -89,7 +84,7 @@ export default function Percorsi() {
           </a>
         </div>
 
-        <div className="border-heading/20 bg-heading/5 relative aspect-[4/5] w-full max-w-xs justify-self-center overflow-hidden rounded-lg border">
+        <div className="order-1 md:order-2 border-heading/20 bg-heading/5 relative aspect-[4/5] w-full max-w-xs justify-self-center overflow-hidden rounded-lg border">
           <Image
             src="/placeholder_verticale.jpg"
             alt="Descrizione della foto"
@@ -99,7 +94,7 @@ export default function Percorsi() {
         </div>
       </section>
 
-      <section className="grid grid-cols-1 items-center gap-10 px-6 py-16 md:grid-cols-2 md:gap-16 md:px-16">
+      <section className="grid grid-cols-1 items-center gap-10 px-6 py-10 md:grid-cols-2 md:py-16 md:gap-16 md:px-16">
         <div className="border-heading/20 bg-heading/5 relative aspect-[4/5] w-full max-w-xs justify-self-center overflow-hidden rounded-lg border">
           <Image
             src="/placeholder_verticale.jpg"
@@ -131,13 +126,13 @@ export default function Percorsi() {
         </div>
       </section>
 
-      <section className="flex flex-col items-center gap-6 px-6 pt-8 pb-24 text-center">
+      <section className="flex flex-col items-center gap-6 px-6 pt-8 pb-16 md:pb-24 text-center">
         <MandalaLogo className="text-heading h-16 w-16" />
         <h2 className="font-heading text-heading text-3xl font-semibold tracking-tight">
           Il tuo viaggio può iniziare ora
         </h2>
         <p className="font-body italic text-xl max-w-md">
-          Ogni porta si apre solo quando decidi di attraversarla.
+          Ci sono porte che si aprono solo da dentro.
         </p>
         <a
           href="/contatti"

@@ -2,7 +2,10 @@
 
 import { useState } from "react";
 
-const mandala = Array.from({ length: 9 }, (_, i) => i + 1);
+const mandala = Array.from({ length: 9 }, (_, i) => ({
+  n: i + 1,
+  titolo: `Titolo mandala ${i + 1}`,
+}));
 
 export default function MandalaGallery() {
   const [selected, setSelected] = useState<number | null>(null);
@@ -15,24 +18,28 @@ export default function MandalaGallery() {
 
   return (
     <>
-      <div className="grid w-full max-w-4xl grid-cols-2 gap-10 sm:grid-cols-3">
-        {mandala.map((n) => (
-          <button
-            key={n}
-            onClick={() => setSelected(n)}
-            aria-label={`Apri mandala ${n}`}
-            className="border-heading/20 bg-heading/5 group aspect-square overflow-hidden rounded-lg border transition-all duration-300 hover:-translate-y-1 hover:border-heading/50 hover:shadow-lg cursor-pointer"
-          >
-            <div className="text-heading/40 font-heading flex h-full w-full items-center justify-center text-sm transition-transform duration-300 group-hover:scale-105">
-              {n}
-            </div>
-          </button>
+      <div className="grid w-full max-w-4xl grid-cols-1 gap-10 sm:grid-cols-3">
+        {mandala.map(({ n, titolo }) => (
+          <figure key={n} className="flex flex-col gap-3">
+            <button
+              onClick={() => setSelected(n)}
+              aria-label={`Apri ${titolo}`}
+              className="border-heading/20 bg-heading/5 group aspect-square overflow-hidden rounded-lg border transition-all duration-300 hover:-translate-y-1 hover:border-heading/50 hover:shadow-lg cursor-pointer"
+            >
+              <div className="text-heading/40 font-heading flex h-full w-full items-center justify-center text-sm transition-transform duration-300 group-hover:scale-105">
+                {n}
+              </div>
+            </button>
+            <figcaption className="font-heading text-heading text-xs font-semibold sm:text-sm uppercase tracking-[0.03em]">
+              {titolo}
+            </figcaption>
+          </figure>
         ))}
       </div>
 
       {selected !== null && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-6"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-12 sm:px-6"
           onClick={() => setSelected(null)}
         >
           <button
@@ -54,14 +61,19 @@ export default function MandalaGallery() {
             ‹
           </button>
 
-          <div
+          <figure
             onClick={(e) => e.stopPropagation()}
-            className="bg-background flex aspect-square w-full max-w-md items-center justify-center rounded-lg"
+            className="flex w-full max-w-md flex-col items-center gap-4"
           >
-            <span className="text-heading/40 font-heading text-2xl">
-              {selected}
-            </span>
-          </div>
+            <div className="bg-background flex aspect-square w-full items-center justify-center rounded-lg">
+              <span className="text-heading/40 font-heading text-2xl">
+                {selected}
+              </span>
+            </div>
+            <figcaption className="font-heading text-background text-base font-semibold uppercase tracking-[0.03em]">
+              {mandala[selected - 1].titolo}
+            </figcaption>
+          </figure>
 
           <button
             onClick={(e) => {
