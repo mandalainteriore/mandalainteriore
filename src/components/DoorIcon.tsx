@@ -1,4 +1,10 @@
-export default function DoorIcon({ className }: { className?: string }) {
+export default function DoorIcon({
+  className,
+  aperta = false,
+}: {
+  className?: string;
+  aperta?: boolean;
+}) {
   return (
     <svg
       viewBox="0 0 40 60"
@@ -14,7 +20,9 @@ export default function DoorIcon({ className }: { className?: string }) {
       />
 
       {/* closed door leaf */}
-      <g className="opacity-100 transition-opacity duration-500 group-hover:opacity-0">
+      <g
+        className={`transition-opacity duration-500 ${aperta ? "opacity-0" : "opacity-100 group-hover:opacity-0"}`}
+      >
         <path
           d="M7,56 V23.5 A13,13 0 0 1 33,23.5 V56 Z"
           fill="currentColor"
@@ -36,7 +44,9 @@ export default function DoorIcon({ className }: { className?: string }) {
       </g>
 
       {/* door ajar */}
-      <g className="opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+      <g
+        className={`transition-opacity duration-500 ${aperta ? "opacity-100" : "opacity-0 group-hover:opacity-100"}`}
+      >
         <path
           d="M7,56 V23.5 A13,13 0 0 1 26,23"
           fill="none"

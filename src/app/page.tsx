@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import DoorIcon from "@/components/DoorIcon";
+import PortaEntra from "@/components/PortaEntra";
 import KeyIcon, { type Simbolo } from "@/components/KeyIcon";
 import Divider from "@/components/Divider";
 import MandalaLogo from "@/components/MandalaLogo";
@@ -55,13 +55,7 @@ export default function Home() {
           </p>
         </section>
 
-        <a
-          href="#percorso"
-          className="group absolute bottom-4 flex flex-col items-center gap-2 font-heading text-sm font-semibold uppercase tracking-[0.03em]"
-        >
-          entra
-          <DoorIcon className="h-10 w-auto" />
-        </a>
+        <PortaEntra href="#eventi" />
       </main>
 
       <section
