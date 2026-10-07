@@ -48,7 +48,12 @@ export default function Home() {
           <h1 className="font-heading text-heading text-4xl font-semibold tracking-tight">
             Mandala Interiore
           </h1>
-          <p className="font-body italic text-xl max-w-md">
+          <p className="text-heading flex items-center gap-4">
+            <span aria-hidden="true" className="bg-heading/40 h-px w-10 sm:w-16" />
+            <span className="font-script text-3xl sm:text-4xl">con Roxana Zlate</span>
+            <span aria-hidden="true" className="bg-heading/40 h-px w-10 sm:w-16" />
+          </p>
+          <p className="font-body mt-3 italic text-xl max-w-md">
             Ogni persona custodisce dentro di sé le risorse per stare bene.
             <br />
             A volte serve soltanto la chiave giusta per ritrovarle.

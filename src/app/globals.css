@@ -12,6 +12,7 @@
   --color-heading: var(--heading);
   --font-heading: var(--font-cinzel);
   --font-body: var(--font-cormorant);
+  --font-script: var(--font-great-vibes);
 }
 
 html {

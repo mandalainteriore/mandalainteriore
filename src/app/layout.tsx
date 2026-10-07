@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cinzel, Cormorant_Garamond } from "next/font/google";
+import { Cinzel, Cormorant_Garamond, Great_Vibes } from "next/font/google";
 import Navbar from "@/components/Navbar";
 import Loader from "@/components/Loader";
 import "./globals.css";
@@ -17,6 +17,12 @@ const cormorantGaramond = Cormorant_Garamond({
   style: ["normal", "italic"],
 });
 
+const greatVibes = Great_Vibes({
+  variable: "--font-great-vibes",
+  subsets: ["latin"],
+  weight: "400",
+});
+
 export const metadata: Metadata = {
   title: {
     default: "Mandala Interiore - Roxana Zlate",
@@ -29,7 +35,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="it"
-      className={`${cinzel.variable} ${cormorantGaramond.variable} h-full antialiased`}
+      className={`${cinzel.variable} ${cormorantGaramond.variable} ${greatVibes.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <Loader />
