@@ -18,14 +18,16 @@ export default function CounselingTranspersonale() {
         <h2 className="font-heading text-heading text-3xl font-semibold tracking-wide">
           Cos&rsquo;è
         </h2>
-        <p className="font-body italic text-xl max-w-xl">
-          Un ascolto che va oltre il sintomo, per incontrare la persona nella
-          sua interezza.
-        </p>
         <p className="font-body text-lg max-w-xl">
           Il Counseling Transpersonale è un percorso di crescita che aiuta a riconoscere e sviluppare le
           qualità più autentiche, favorendo un rinnovamento della coscienza e una maggiore sintonia con la
           propria natura profonda.
+        </p>
+
+        <p className="font-body text-lg max-w-xl">
+          Si radica nella Biotransenergetica (BTE), una via esperienziale che
+          integra psicologia transpersonale, pratiche corporee e spirituali, meditazione e antiche tradizioni
+          sciamaniche.
         </p>
 
         <p className="font-body text-lg max-w-xl">
@@ -44,17 +46,12 @@ export default function CounselingTranspersonale() {
           intuizioni, immagini interiori e nuove comprensioni che guidano verso una maggiore libertà
           interiore e una vita più coerente con la propria essenza.
         </p>
-        <p className="font-body text-lg max-w-xl">
-          Il Counseling Transpersonale si radica nella Biotransenergetica (BTE), una via esperienziale che
-          integra psicologia transpersonale, pratiche corporee e spirituali, meditazione e antiche tradizioni
-          sciamaniche.
-        </p>
 
         <Divider className="text-heading h-4 w-40" />
       </section>
 
       <section className="flex flex-col items-center gap-6 px-6 pt-8 pb-16 md:pb-24 text-center">
-        <MandalaLogo className="text-heading h-16 w-16" />
+        <MandalaLogo className="text-heading h-20 w-auto" />
         <h2 className="font-heading text-heading text-3xl font-semibold tracking-tight">
           Il tuo viaggio può iniziare ora
         </h2>

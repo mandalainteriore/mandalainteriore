@@ -26,27 +26,27 @@ export default function YogaAnukalanaMeditazione() {
           Accoglie la persona nella sua totalità, adattandosi alle sue esigenze e favorendo trasformazioni profonde.
           È un metodo che aiuta a ritrovare naturalezza, presenza e radicamento, rendendo la pratica accessibile, piacevole e profondamente rigenerante.
         </p>
+        <p className="font-body text-lg max-w-xl">
+          La pratica si basa sulla natura “liquida” del corpo umano e favorisce movimenti morbidi, continui e
+          organici, che riducono la fatica e aumentano la percezione interna.
+        </p>
+        <p className="font-body text-lg max-w-xl">
+          L’integrazione con elementi del Tai Chi e della danza sostiene la fluidità, mentre la respirazione organismica guida il ritmo e apre lo
+          spazio alla meditazione.
+        </p>
       </section>
 
       <section className="flex flex-col items-center gap-4 px-6 pt-12 pb-16 text-center">
         <h2 className="font-heading text-heading text-3xl font-semibold tracking-wide">
           Come si svolge
         </h2>
-        <p className="font-body text-lg max-w-xl">
-          La pratica si basa sulla natura “liquida” del corpo umano e favorisce movimenti morbidi, continui e
-          organici, che riducono la fatica e aumentano la percezione interna.
-        </p>
-
-        <p className="font-body text-lg max-w-xl">
-          L’integrazione con elementi del Tai Chi e della danza sostiene la fluidità, mentre la respirazione organismica guida il ritmo e apre lo
-          spazio alla meditazione.
-        </p>
+        {/* Testo in arrivo */}
 
         <Divider className="text-heading h-4 w-40" />
       </section>
 
       <section className="flex flex-col items-center gap-6 px-6 pt-8 pb-16 md:pb-24 text-center">
-        <MandalaLogo className="text-heading h-16 w-16" />
+        <MandalaLogo className="text-heading h-20 w-auto" />
         <h2 className="font-heading text-heading text-3xl font-semibold tracking-tight">
           Il tuo viaggio può iniziare ora
         </h2>

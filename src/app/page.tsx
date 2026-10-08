@@ -1,36 +1,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import PortaEntra from "@/components/PortaEntra";
-import KeyIcon, { type Simbolo } from "@/components/KeyIcon";
+import KeyIcon from "@/components/KeyIcon";
 import Divider from "@/components/Divider";
 import MandalaLogo from "@/components/MandalaLogo";
 import SiteFooter from "@/components/SiteFooter";
 import EventiGrid from "@/components/EventiGrid";
 import { eventi } from "@/data/eventi";
-
-const chiavi: { titolo: string; descrizione: string; href: string; simbolo: Simbolo }[] = [
-  {
-    titolo: "Counseling transpersonale",
-    descrizione:
-      "Uno spazio di ascolto autentico per comprenderti, sciogliere i blocchi interiori e ritrovare il tuo centro.",
-    href: "/counseling-transpersonale",
-    simbolo: "fiore-della-vita",
-  },
-  {
-    titolo: "Yoga Anukalana e meditazione",
-    descrizione:
-      "Movimento, respiro e presenza si uniscono per riportare equilibrio, vitalità e armonia nella tua vita.",
-    href: "/yoga-anukalana-meditazione",
-    simbolo: "pentagramma",
-  },
-  {
-    titolo: "Mandala – arteterapia",
-    descrizione:
-      "Colori, simboli e geometrie sacre diventano strumenti per dare forma al tuo mondo interiore e favorire la trasformazione.",
-    href: "/mandala-arteterapia",
-    simbolo: "esagramma",
-  },
-];
+import { chiavi } from "@/data/chiavi";
 
 export default function Home() {
   return (
@@ -65,7 +42,7 @@ export default function Home() {
 
       <section
         id="eventi"
-        className="flex flex-col items-center gap-10 px-6 pt-16 md:pt-24 pb-12 text-center"
+        className="flex flex-col items-center gap-8 px-6 pt-10 pb-12 text-center md:pt-12"
       >
         <div className="flex flex-col items-center gap-4">
           <h2 className="font-heading text-heading text-3xl font-semibold tracking-tight">
@@ -83,19 +60,23 @@ export default function Home() {
 
       <section
         id="percorso"
-        className="flex flex-col items-center gap-8 px-6 pt-12 pb-16 md:pb-24 text-center"
+        className="flex flex-col items-center gap-8 px-6 pt-16 pb-16 md:pt-20 md:pb-24 text-center"
       >
-        <div className="font-body text-lg max-w-xl">
-          <p>Accompagno le persone a ritrovare l’equilibrio, chiarezza e presenza.</p>
-          <p className="italic">Scegli la chiave che senti più vicina.</p>
-          <p className="italic">
-            Insieme daremo forma a un percorso integrato che posssa accompagnari nel tuo cammino.
-          </p>
+        <div className="flex flex-col items-center gap-4">
+          <h2 className="font-heading text-heading max-w-xl text-3xl font-semibold tracking-tight">
+            Scegli la chiave che senti più vicina
+          </h2>
+          <div className="font-body text-lg max-w-xl">
+            <p>Accompagno le persone a ritrovare l’equilibrio, chiarezza e presenza.</p>
+            <p className="italic">
+              Insieme daremo forma a un percorso integrato che possa accompagnarti nel tuo cammino.
+            </p>
+          </div>
         </div>
 
         <Divider className="text-heading h-4 w-40" />
 
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 max-w-3xl">
+        <div className="grid max-w-4xl grid-cols-1 gap-10 sm:grid-cols-2 sm:gap-12 lg:grid-cols-3 lg:gap-14">
           {chiavi.map((chiave) => (
             <Link
               key={chiave.titolo}
@@ -118,10 +99,10 @@ export default function Home() {
         id="storia"
         className="grid grid-cols-1 items-center justify-items-center gap-8 px-6 py-16 md:h-screen md:grid-cols-2 md:overflow-hidden md:py-8 md:gap-6 md:px-16"
       >
-        <div className="border-heading/20 relative aspect-[4/5] h-56 shrink-0 overflow-hidden rounded-lg border md:h-80">
+        <div className="border-heading/20 relative aspect-[4/5] h-72 shrink-0 overflow-hidden rounded-lg border md:h-96">
           <Image
-            src="/placeholder_verticale.jpg"
-            alt="Descrizione della foto"
+            src="/roxana_albero.jpg"
+            alt="Roxana Zlate"
             fill
             className="object-cover"
           />
@@ -201,7 +182,7 @@ export default function Home() {
       </section>
 
       <section className="flex flex-col items-center gap-6 px-6 pt-8 pb-16 md:pb-24 text-center">
-        <MandalaLogo className="text-heading h-16 w-16" />
+        <MandalaLogo className="text-heading h-20 w-auto" />
         <h2 className="font-heading text-heading text-3xl font-semibold tracking-tight">
           Il tuo viaggio può iniziare ora
         </h2>

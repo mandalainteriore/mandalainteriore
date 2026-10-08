@@ -75,7 +75,7 @@ export default function Contatti() {
         </div>
 
         <div className="flex w-full max-w-xs flex-col items-start gap-8 text-left">
-          <MandalaLogo className="text-heading h-16 w-16 self-center" />
+          <MandalaLogo className="text-heading h-20 w-auto self-center" />
 
           <p className="font-body italic text-xl">
             Scrivimi per raccontarmi cosa cerchi, o per qualsiasi domanda sui
@@ -89,10 +89,10 @@ export default function Contatti() {
               Email
             </h2>
             <a
-              href="mailto:info@mandalainteriore.it"
+              href="mailto:roxana.zlate11@gmail.com"
               className="font-body text-lg hover:opacity-70 transition-opacity"
             >
-              info@mandalainteriore.it
+              roxana.zlate11@gmail.com
             </a>
           </div>
 
@@ -101,10 +101,10 @@ export default function Contatti() {
               Telefono
             </h2>
             <a
-              href="tel:+390000000000"
+              href="tel:+393287019457"
               className="font-body text-lg hover:opacity-70 transition-opacity"
             >
-              +39 000 000 0000
+              +39 328 701 9457
             </a>
           </div>
 

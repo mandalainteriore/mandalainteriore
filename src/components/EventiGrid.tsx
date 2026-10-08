@@ -5,20 +5,20 @@ import Image from "next/image";
 import Link from "next/link";
 import { formattaData, type Evento } from "@/data/eventi";
 
-const VISIBILI = 3;
+const VISIBILI = 6;
 
 function CardEvento({ evento }: { evento: Evento }) {
   return (
     <Link
       href={`/eventi/${evento.slug}`}
-      className="group flex cursor-pointer flex-col gap-4"
+      className="group flex w-full max-w-64 cursor-pointer flex-col gap-4 justify-self-center sm:max-w-none sm:justify-self-stretch"
     >
-      <div className="border-heading/20 relative aspect-[4/5] w-full overflow-hidden rounded-lg border shadow-sm transition-all duration-300 group-hover:-translate-y-1 group-hover:border-heading/50 group-hover:shadow-lg">
+      <div className="border-heading/20 relative aspect-[2/3] w-full overflow-hidden rounded-lg border shadow-sm transition-all duration-300 group-hover:-translate-y-1 group-hover:border-heading/50 group-hover:shadow-lg">
         <Image
           src={evento.immagine}
           alt={evento.titolo}
           fill
-          sizes="(min-width: 1024px) 320px, (min-width: 640px) 50vw, 100vw"
+          sizes="(min-width: 1024px) 256px, (min-width: 640px) 50vw, 256px"
           className="object-cover transition-transform duration-500 group-hover:scale-105"
         />
       </div>
@@ -47,7 +47,7 @@ export default function EventiGrid({ eventi }: { eventi: Evento[] }) {
 
   return (
     <>
-      <div className="grid w-full max-w-5xl grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid w-full max-w-[52rem] grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
         {recenti.map((evento) => (
           <CardEvento key={evento.slug} evento={evento} />
         ))}

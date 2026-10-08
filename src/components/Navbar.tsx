@@ -5,7 +5,7 @@ import Link from "next/link";
 import MandalaLogo from "./MandalaLogo";
 
 const chiavi = [
-  { titolo: "Counseling transpersonale", href: "/counseling-transpersonale" },
+  { titolo: "Counseling transpersonale – Biotransenergetica", href: "/counseling-transpersonale" },
   { titolo: "Yoga Anukalana e meditazione", href: "/yoga-anukalana-meditazione" },
   { titolo: "Mandala – arteterapia", href: "/mandala-arteterapia" }
 ];
@@ -32,12 +32,12 @@ function MenuMobile({ aperto, onClose }: { aperto: boolean; onClose: () => void 
       id="menu-mobile"
       inert={!aperto}
       aria-hidden={!aperto}
-      className={`bg-background fixed inset-0 z-50 flex flex-col items-center overflow-y-auto px-6 pt-5 pb-[76px] transition-[translate,visibility] duration-500 ease-out motion-reduce:transition-none xl:hidden ${
+      className={`bg-background fixed inset-0 z-50 flex flex-col items-center overflow-y-auto px-6 pt-5 pb-[100px] transition-[translate,visibility] duration-500 ease-out motion-reduce:transition-none xl:hidden ${
         aperto ? "visible translate-y-0" : "invisible -translate-y-full"
       }`}
     >
       {/* Stessa altezza della barra, così la X compare dove c'era l'icona del menu */}
-      <div className="flex h-14 w-full items-center justify-end">
+      <div className="flex h-20 w-full items-center justify-end">
         <button
           onClick={onClose}
           aria-label="Chiudi menu"
@@ -133,7 +133,7 @@ export default function Navbar() {
       {/* Mobile e tablet: logo al centro, pulsante menu a destra */}
       <div className="flex items-center justify-between xl:hidden">
         <Link href="/" aria-label="Mandala Interiore" className="hover:opacity-70 transition-opacity">
-          <MandalaLogo className="h-14 w-14" />
+          <MandalaLogo className="h-20 w-auto" />
         </Link>
         <button
           onClick={() => setMenuMobile(true)}
@@ -166,7 +166,7 @@ export default function Navbar() {
             </button>
 
             {open && (
-              <div className="border-heading/20 bg-background absolute left-1/2 top-full mt-3 flex w-56 -translate-x-1/2 flex-col gap-1 rounded-lg border py-2 shadow-lg normal-case">
+              <div className="border-heading/20 bg-background absolute left-1/2 top-full mt-3 flex w-72 -translate-x-1/2 flex-col gap-1 rounded-lg border py-2 shadow-lg normal-case">
                 {chiavi.map((chiave) => (
                   <Link
                     key={chiave.titolo}
@@ -182,7 +182,7 @@ export default function Navbar() {
           </div>
 
           <Link href="/" aria-label="Mandala Interiore" className="hover:opacity-70 transition-opacity">
-            <MandalaLogo className="h-[75px] w-[75px]" />
+            <MandalaLogo className="h-[90px] w-auto" />
           </Link>
           <Link href="/percorsi" className="hover:opacity-70 transition-opacity">
             Percorsi

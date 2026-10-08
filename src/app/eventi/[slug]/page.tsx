@@ -51,13 +51,13 @@ export default async function PaginaEvento({
       </main>
 
       <article className="mx-auto flex w-full max-w-2xl flex-col gap-10 px-6 pb-16 md:pb-24">
-        <div className="border-heading/20 relative mx-auto aspect-[4/5] w-full max-w-md overflow-hidden rounded-lg border shadow-sm">
+        <div className="border-heading/20 relative mx-auto aspect-[2/3] w-full max-w-[352px] overflow-hidden rounded-lg border shadow-sm">
           <Image
             src={evento.immagine}
             alt={evento.titolo}
             fill
             priority
-            sizes="(min-width: 448px) 448px, 100vw"
+            sizes="(min-width: 352px) 352px, 100vw"
             className="object-cover"
           />
         </div>
@@ -71,7 +71,7 @@ export default async function PaginaEvento({
       </article>
 
       <section className="flex flex-col items-center gap-6 px-6 pt-8 pb-16 md:pb-24 text-center">
-        <MandalaLogo className="text-heading h-16 w-16" />
+        <MandalaLogo className="text-heading h-20 w-auto" />
         <h2 className="font-heading text-heading text-3xl font-semibold tracking-tight">
           Il tuo viaggio può iniziare ora
         </h2>

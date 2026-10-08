@@ -1,3 +1,4 @@
+import Image from "next/image";
 import MandalaLogo from "@/components/MandalaLogo";
 import PillarIcon from "@/components/PillarIcon";
 import SiteFooter from "@/components/SiteFooter";
@@ -54,7 +55,15 @@ export default function MandalaArteterapia() {
       </section>
 
       <section className="flex flex-col items-center px-6 py-4">
-        <div className="border-heading/20 bg-heading/5 aspect-square w-full max-w-xs rounded-lg border" />
+        <div className="border-heading/20 bg-heading/5 relative aspect-square w-full max-w-xs overflow-hidden rounded-lg border">
+          <Image
+            src="/mandala_oxossi.jpg"
+            alt="Mandala di Oxossi"
+            fill
+            sizes="320px"
+            className="object-cover"
+          />
+        </div>
       </section>
 
       <section className="flex flex-col items-center gap-4 px-6 pt-12 pb-16 text-center">
@@ -105,7 +114,7 @@ export default function MandalaArteterapia() {
       </section>
 
       <section className="flex flex-col items-center gap-6 px-6 pt-8 pb-16 md:pb-24 text-center">
-        <MandalaLogo className="text-heading h-16 w-16" />
+        <MandalaLogo className="text-heading h-20 w-auto" />
         <h2 className="font-heading text-heading text-3xl font-semibold tracking-tight">
           Il tuo viaggio può iniziare ora
         </h2>

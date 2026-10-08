@@ -39,8 +39,8 @@ export default function LaMiaStoria() {
       <section className="flex flex-col items-center gap-10 px-6 pt-16 md:pt-24 pb-12 md:flex-row md:justify-center md:gap-20 md:px-16">
         <div className="border-heading/20 bg-heading/5 relative aspect-[4/5] w-full max-w-xs shrink-0 overflow-hidden rounded-lg border">
           <Image
-            src="/placeholder_verticale.jpg"
-            alt="Descrizione della foto"
+            src="/roxana_primo_piano.jpg"
+            alt="Ritratto di Roxana Zlate"
             fill
             className="object-cover"
           />
@@ -84,8 +84,8 @@ export default function LaMiaStoria() {
         
         <div className="order-1 md:order-2 border-heading/20 bg-heading/5 relative aspect-[4/5] w-full max-w-xs shrink-0 overflow-hidden rounded-lg border">
           <Image
-            src="/placeholder_verticale.jpg"
-            alt="Descrizione della foto"
+            src="/foto_roxana_gruppo.jpg"
+            alt="Roxana Zlate durante un incontro di gruppo"
             fill
             className="object-cover"
           />
@@ -132,7 +132,7 @@ export default function LaMiaStoria() {
           <p className="font-body text-lg">
             2019–2023 — Formazione triennale Insegnante Yoga, Samadhi Ssdrl <br></br>
             2021 — Corso Oli Essenziali con il Dott. Leonardo Paoluzzi <br></br>
-            2024 –in corso — Formazione in Counseling Transpersonale -Metodo BioTransEnergetica (BTE),
+            2024 –in corso — Formazione in Counseling Transpersonale -Metodo Biotransenergetica (BTE),
             Scuola OmVerbania
           </p>
           <p className="font-body text-lg">
@@ -153,7 +153,7 @@ export default function LaMiaStoria() {
       </section>
 
       <section className="flex flex-col items-center gap-6 px-6 pt-8 pb-16 md:pb-24 text-center">
-        <MandalaLogo className="text-heading h-16 w-16" />
+        <MandalaLogo className="text-heading h-20 w-auto" />
         <h2 className="font-heading text-heading text-3xl font-semibold tracking-tight">
           Il tuo viaggio può iniziare ora
         </h2>

@@ -32,7 +32,7 @@ export default function PortaEntra({ href }: { href: `#${string}` }) {
       className="group absolute bottom-4 flex flex-col items-center gap-2 font-heading text-sm font-semibold uppercase tracking-[0.03em]"
     >
       entra
-      <DoorIcon aperta={aperta} className="h-10 w-auto" />
+      <DoorIcon aperta={aperta} className="h-14 w-auto" />
     </a>
   );
 }

@@ -6,6 +6,7 @@ import Image from "next/image";
 const mandala = Array.from({ length: 9 }, (_, i) => ({
   n: i + 1,
   titolo: `Titolo mandala ${i + 1}`,
+  descrizione: "Breve descrizione del mandala, del suo significato e di come è nato.",
   // Segnaposto: sostituire con le foto dei mandala.
   immagine: "/placeholder_quadrato.jpg",
 }));
@@ -22,7 +23,7 @@ export default function MandalaGallery() {
   return (
     <>
       <div className="grid w-full max-w-4xl grid-cols-1 gap-10 sm:grid-cols-3">
-        {mandala.map(({ n, titolo, immagine }) => (
+        {mandala.map(({ n, titolo, descrizione, immagine }) => (
           <figure key={n} className="flex flex-col gap-3">
             <button
               onClick={() => setSelected(n)}
@@ -37,8 +38,11 @@ export default function MandalaGallery() {
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
               />
             </button>
-            <figcaption className="font-heading text-heading text-xs font-semibold sm:text-sm uppercase tracking-[0.03em]">
-              {titolo}
+            <figcaption className="flex flex-col gap-1">
+              <span className="font-heading text-heading text-xs font-semibold sm:text-sm uppercase tracking-[0.03em]">
+                {titolo}
+              </span>
+              <span className="font-body text-base">{descrizione}</span>
             </figcaption>
           </figure>
         ))}
@@ -81,8 +85,11 @@ export default function MandalaGallery() {
                 className="object-cover"
               />
             </div>
-            <figcaption className="font-heading text-background text-base font-semibold uppercase tracking-[0.03em]">
-              {mandala[selected - 1].titolo}
+            <figcaption className="text-background flex flex-col items-center gap-1 text-center">
+              <span className="font-heading text-base font-semibold uppercase tracking-[0.03em]">
+                {mandala[selected - 1].titolo}
+              </span>
+              <span className="font-body text-lg">{mandala[selected - 1].descrizione}</span>
             </figcaption>
           </figure>
 

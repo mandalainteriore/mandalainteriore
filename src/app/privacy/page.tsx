@@ -6,15 +6,6 @@ export const metadata: Metadata = {
   title: "Privacy Policy",
 };
 
-// Segnaposto evidenziato per i dati ancora da inserire.
-function DaCompletare({ children }: { children: React.ReactNode }) {
-  return (
-    <mark className="bg-heading/15 text-heading rounded px-1 font-semibold">
-      [{children}]
-    </mark>
-  );
-}
-
 function Sezione({
   titolo,
   children,
@@ -55,17 +46,15 @@ export default function Privacy() {
 
         <Sezione titolo="1. Titolare del trattamento">
           <p>
-            Il titolare del trattamento è <DaCompletare>nome e cognome</DaCompletare>,
-            con sede in <DaCompletare>indirizzo</DaCompletare>, codice fiscale /
-            P.IVA <DaCompletare>codice fiscale o partita IVA</DaCompletare>.
+            Il titolare del trattamento è Roxana Zlate.
           </p>
           <p>
             Per qualsiasi richiesta relativa ai tuoi dati puoi scrivere a{" "}
             <a
-              href="mailto:info@mandalainteriore.it"
+              href="mailto:roxana.zlate11@gmail.com"
               className="text-heading underline underline-offset-2 hover:opacity-70"
             >
-              info@mandalainteriore.it
+              roxana.zlate11@gmail.com
             </a>
             .
           </p>
@@ -124,7 +113,7 @@ export default function Privacy() {
           <p>
             I dati dei messaggi vengono conservati per il tempo necessario a
             rispondere e, se non nasce un percorso insieme, al massimo per{" "}
-            <DaCompletare>es. 12 mesi</DaCompletare>. Se inizi un percorso, i
+            12 mesi. Se inizi un percorso, i
             dati sono conservati per la durata del rapporto e poi per il tempo
             previsto dagli obblighi di legge. I dati di navigazione sono
             conservati per un periodo limitato dal fornitore di hosting.
@@ -139,11 +128,11 @@ export default function Privacy() {
           </p>
           <ul className="flex list-disc flex-col gap-2 pl-6">
             <li>
-              hosting del sito: <DaCompletare>es. Vercel Inc.</DaCompletare>;
+              hosting del sito: Vercel Inc.;
             </li>
             <li>
               servizio email e invio dei messaggi del modulo di contatto:{" "}
-              <DaCompletare>es. Google Workspace, Aruba…</DaCompletare>.
+              Google LLC (Gmail).
             </li>
           </ul>
           <p>
@@ -187,10 +176,10 @@ export default function Privacy() {
           <p>
             Basta scrivere a{" "}
             <a
-              href="mailto:info@mandalainteriore.it"
+              href="mailto:roxana.zlate11@gmail.com"
               className="text-heading underline underline-offset-2 hover:opacity-70"
             >
-              info@mandalainteriore.it
+              roxana.zlate11@gmail.com
             </a>
             . Se ritieni che il trattamento non sia corretto, puoi presentare
             reclamo al Garante per la protezione dei dati personali (

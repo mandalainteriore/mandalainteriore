@@ -3,6 +3,9 @@ import MandalaLogo from "@/components/MandalaLogo";
 import SiteFooter from "@/components/SiteFooter";
 import SfondoResponsive from "@/components/SfondoResponsive";
 import Divider from "@/components/Divider";
+import Link from "next/link";
+import KeyIcon from "@/components/KeyIcon";
+import { chiavi } from "@/data/chiavi";
 
 export default function Percorsi() {
   return (
@@ -21,11 +24,32 @@ export default function Percorsi() {
           alla vita di un&rsquo;organizzazione.
         </p>
         <p className="font-body text-lg max-w-xl">
-          Scegli la modalità più vicina a te, ogni chiave può abitarne più di una.
+          Il percorso nasce dalla chiave che senti più vicina e può essere
+          vissuto in tre forme: individuale, di gruppo o all&rsquo;interno di
+          un&rsquo;organizzazione.
         </p>
-        <p className="font-body text-lg max-w-xl">
-          Ogni sessione potrà essere accompagnata dai profumi degli oli essenziali per sostenerti nel tuo viaggio.
-        </p>
+
+        <ul className="mt-4 mb-2 grid w-full max-w-4xl grid-cols-1 gap-4 md:grid-cols-3">
+          {chiavi.map((chiave) => (
+            <li key={chiave.href}>
+              <Link
+                href={chiave.href}
+                className="group border-heading/30 hover:border-heading/60 flex h-full items-center gap-4 rounded-2xl border-2 px-5 py-4 text-left transition-colors"
+              >
+                <KeyIcon
+                  simbolo={chiave.simbolo}
+                  className="text-heading h-14 w-auto shrink-0 transition-transform duration-300 group-hover:scale-110"
+                />
+                <span className="flex flex-col gap-1">
+                  <span className="font-heading text-heading text-xs font-semibold uppercase tracking-[0.03em]">
+                    {chiave.titolo}
+                  </span>
+                  <span className="font-body text-base leading-snug">{chiave.sintesi}</span>
+                </span>
+              </Link>
+            </li>
+          ))}
+        </ul>
 
         <Divider className="text-heading h-4 w-40" />
       </section>
@@ -86,8 +110,8 @@ export default function Percorsi() {
 
         <div className="order-1 md:order-2 border-heading/20 bg-heading/5 relative aspect-[4/5] w-full max-w-xs justify-self-center overflow-hidden rounded-lg border">
           <Image
-            src="/placeholder_verticale.jpg"
-            alt="Descrizione della foto"
+            src="/foto_gruppo.jpg"
+            alt="Un percorso di gruppo con Roxana Zlate"
             fill
             className="object-cover"
           />
@@ -127,7 +151,7 @@ export default function Percorsi() {
       </section>
 
       <section className="flex flex-col items-center gap-6 px-6 pt-8 pb-16 md:pb-24 text-center">
-        <MandalaLogo className="text-heading h-16 w-16" />
+        <MandalaLogo className="text-heading h-20 w-auto" />
         <h2 className="font-heading text-heading text-3xl font-semibold tracking-tight">
           Il tuo viaggio può iniziare ora
         </h2>

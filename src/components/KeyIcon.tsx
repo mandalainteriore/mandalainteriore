@@ -1,7 +1,9 @@
 export type Simbolo = "fiore-della-vita" | "pentagramma" | "esagramma";
 
+// Testa della chiave: centro dell'anello e raggio utile per il simbolo interno.
 const cx = 24;
-const cy = 19;
+const cy = 20;
+const rSimbolo = 12;
 
 function punti(n: number, r: number, offset = -90) {
   return Array.from({ length: n }, (_, i) => {
@@ -10,43 +12,39 @@ function punti(n: number, r: number, offset = -90) {
   });
 }
 
+// Sette cerchi intrecciati (seme della vita) dentro un cerchio: a questa
+// dimensione resta leggibile, mentre il fiore completo diventa una macchia.
 function FioreDellaVita() {
-  const r = 4.5;
-  const centri: [number, number][] = [];
-  for (let q = -3; q <= 3; q++) {
-    for (let s = -3; s <= 3; s++) {
-      const x = cx + r * (q + s / 2);
-      const y = cy + r * s * (Math.sqrt(3) / 2);
-      if (Math.hypot(x - cx, y - cy) <= r * 2.01) centri.push([x, y]);
-    }
-  }
+  const r = rSimbolo / 2;
+  const centri: [number, number][] = [
+    [cx, cy],
+    ...Array.from({ length: 6 }, (_, i): [number, number] => {
+      const a = ((-90 + 60 * i) * Math.PI) / 180;
+      return [cx + r * Math.cos(a), cy + r * Math.sin(a)];
+    }),
+  ];
   return (
-    <>
-      <clipPath id="key-fiore-clip">
-        <circle cx={cx} cy={cy} r="13.5" />
-      </clipPath>
-      <g clipPath="url(#key-fiore-clip)" strokeWidth="0.8">
-        {centri.map(([x, y]) => (
-          <circle key={`${x}-${y}`} cx={x} cy={y} r={r} />
-        ))}
-      </g>
-      <circle cx={cx} cy={cy} r="13.5" strokeWidth="0.8" />
-    </>
+    <g strokeWidth="1.5">
+      {centri.map(([x, y]) => (
+        <circle key={`${x}-${y}`} cx={x} cy={y} r={r} />
+      ))}
+      <circle cx={cx} cy={cy} r={rSimbolo} />
+    </g>
   );
 }
 
 function Pentagramma() {
-  const p = punti(5, 13);
+  const p = punti(5, rSimbolo);
   const stella = [0, 2, 4, 1, 3].map((i) => p[i]).join(" ");
-  return <polygon points={stella} strokeLinejoin="round" />;
+  return <polygon points={stella} strokeWidth="2.2" />;
 }
 
 function Esagramma() {
   return (
-    <>
-      <polygon points={punti(3, 12).join(" ")} strokeLinejoin="round" />
-      <polygon points={punti(3, 12, 90).join(" ")} strokeLinejoin="round" />
-    </>
+    <g strokeWidth="2.2">
+      <polygon points={punti(3, rSimbolo).join(" ")} />
+      <polygon points={punti(3, rSimbolo, 90).join(" ")} />
+    </g>
   );
 }
 
@@ -59,20 +57,31 @@ export default function KeyIcon({
 }) {
   return (
     <svg
-      viewBox="0 0 48 72"
+      viewBox="0 0 48 80"
       className={className}
       aria-hidden="true"
       fill="none"
       stroke="currentColor"
-      strokeWidth="1.2"
+      strokeLinejoin="round"
     >
-      <circle cx={cx} cy={cy} r="17" />
+      {/* Anello: fascia spessa con un filo sottile all'interno */}
+      <circle cx={cx} cy={cy} r="16.6" strokeWidth="3.6" />
+      <circle cx={cx} cy={cy} r="13.6" strokeWidth="0.9" />
+
       {simbolo === "fiore-della-vita" && <FioreDellaVita />}
       {simbolo === "pentagramma" && <Pentagramma />}
       {simbolo === "esagramma" && <Esagramma />}
 
-      <path d="M24,36 V69" />
-      <path d="M24,57 H29 V61 H26.5 V63.5 H29 V67 H24" strokeLinejoin="round" />
+      <g fill="currentColor" stroke="none">
+        {/* Collarino sotto l'anello */}
+        <rect x="19" y="37.5" width="10" height="3.2" rx="1.6" />
+        {/* Gambo */}
+        <rect x="21.8" y="40" width="4.4" height="35" rx="1.2" />
+        {/* Fascetta a metà gambo */}
+        <rect x="20" y="51" width="8" height="2.6" rx="1.3" />
+        {/* Mappa con due denti */}
+        <path d="M25,61 H33 a1,1 0 0 1 1,1 V65 a1,1 0 0 1 -1,1 H29.5 V68.5 H33 a1,1 0 0 1 1,1 V73 a1,1 0 0 1 -1,1 H25 Z" />
+      </g>
     </svg>
   );
 }

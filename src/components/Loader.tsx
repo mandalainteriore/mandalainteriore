@@ -78,7 +78,7 @@ export default function Loader() {
         visibile ? "loader-sicurezza visible opacity-100" : "invisible opacity-0"
       }`}
     >
-      <MandalaLogo className="text-heading h-20 w-20 animate-pulse motion-reduce:animate-none" />
+      <MandalaLogo className="text-heading h-28 w-auto animate-pulse motion-reduce:animate-none" />
     </div>
   );
 }

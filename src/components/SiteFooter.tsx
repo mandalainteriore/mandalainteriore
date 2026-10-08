@@ -17,7 +17,7 @@ export default function SiteFooter() {
       <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-6 text-center md:flex-row md:items-center md:justify-between md:text-left">
         <div className="flex flex-col items-center gap-5 md:items-start">
           <Link href="/" aria-label="Mandala Interiore" className="hover:opacity-70 transition-opacity">
-            <MandalaLogo className="text-heading h-10 w-10" />
+            <MandalaLogo className="text-heading h-14 w-auto" />
           </Link>
 
           <nav className="font-heading text-heading flex flex-wrap justify-center gap-x-4 gap-y-2 text-xs font-semibold uppercase tracking-[0.03em] sm:gap-x-6 md:grid md:grid-cols-2 xl:flex xl:justify-start">
