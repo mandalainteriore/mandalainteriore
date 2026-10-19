@@ -75,7 +75,7 @@ export default function Contatti() {
         </div>
 
         <div className="flex w-full max-w-xs flex-col items-start gap-8 text-left">
-          <MandalaLogo className="text-heading h-20 w-auto self-center" />
+          <MandalaLogo className="text-logo h-20 w-auto self-center" />
 
           <p className="font-body italic text-xl">
             Scrivimi per raccontarmi cosa cerchi, o per qualsiasi domanda sui

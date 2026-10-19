@@ -53,7 +53,7 @@ export default function YogaAnukalanaMeditazione() {
       </section>
 
       <section className="flex flex-col items-center gap-6 px-6 pt-8 pb-16 md:pb-24 text-center">
-        <MandalaLogo className="text-heading h-20 w-auto" />
+        <MandalaLogo className="text-logo h-20 w-auto" />
         <h2 className="font-heading text-heading text-3xl font-semibold tracking-tight">
           Il tuo viaggio può iniziare ora
         </h2>
