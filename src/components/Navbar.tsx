@@ -7,7 +7,7 @@ import MandalaLogo from "./MandalaLogo";
 const chiavi = [
   { titolo: "Counseling transpersonale – Biotransenergetica", href: "/counseling-transpersonale" },
   { titolo: "Yoga Anukalana e meditazione", href: "/yoga-anukalana-meditazione" },
-  { titolo: "Mandala – arteterapia", href: "/mandala-arteterapia" }
+  { titolo: "Mandala – Creatività consapevole", href: "/mandala-creativita-consapevole" }
 ];
 
 function MenuMobile({ aperto, onClose }: { aperto: boolean; onClose: () => void }) {
@@ -133,7 +133,7 @@ export default function Navbar() {
       {/* Mobile e tablet: logo al centro, pulsante menu a destra */}
       <div className="flex items-center justify-between xl:hidden">
         <Link href="/" aria-label="Mandala Interiore" className="hover:opacity-70 transition-opacity">
-          <MandalaLogo className="h-20 w-auto" />
+          <MandalaLogo className="text-logo h-20 w-auto" />
         </Link>
         <button
           onClick={() => setMenuMobile(true)}
@@ -182,7 +182,7 @@ export default function Navbar() {
           </div>
 
           <Link href="/" aria-label="Mandala Interiore" className="hover:opacity-70 transition-opacity">
-            <MandalaLogo className="h-[90px] w-auto" />
+            <MandalaLogo className="text-logo h-[90px] w-auto" />
           </Link>
           <Link href="/percorsi" className="hover:opacity-70 transition-opacity">
             Percorsi

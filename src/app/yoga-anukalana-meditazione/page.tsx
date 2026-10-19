@@ -40,7 +40,14 @@ export default function YogaAnukalanaMeditazione() {
         <h2 className="font-heading text-heading text-3xl font-semibold tracking-wide">
           Come si svolge
         </h2>
-        {/* Testo in arrivo */}
+        <p className="font-body text-lg max-w-xl">
+          Le pratiche di Anukalana Yoga si svolgono in presenza, con movimenti fluidi e naturali che
+          rispettano la tua costituzione e favoriscono ascolto, radicamento e presenza.
+        </p>
+        <p className="font-body text-lg max-w-xl">
+          Le meditazioni possono essere anche online, oltre ai gruppi in presenza, per offrirti uno
+          spazio di centratura e consapevolezza ovunque tu sia.
+        </p>
 
         <Divider className="text-heading h-4 w-40" />
       </section>

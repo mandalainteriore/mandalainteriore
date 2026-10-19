@@ -7,21 +7,41 @@ import SiteFooter from "@/components/SiteFooter";
 const valori = [
   {
     variant: "accoglienza" as const,
-    titolo: "Accoglienza",
+    titolo: "Consapevolezza",
     descrizione:
-      "Camminiamo insieme in uno spazio autentico di accettazione, presenza e non giudizio dove puoi lasciarti vedere per cio che sei, ritrovando la tua autenticità e la connessione con la tua vera essenza.",
+      "Camminiamo insieme in uno spazio autentico di accettazione, presenza e non giudizio. Un luogo di osservazione consapevole in cui puoi lasciarti vedere nella tua autenticità e ritrovare la connessione con la tua vera essenza.",
   },
   {
     variant: "ascolto" as const,
-    titolo: "Ascolto",
+    titolo: "Sensibilità",
     descrizione:
-      "Ascolto attivo e intuitivo per percepire ciò che emerge oltre le parole, dando spazio al corpo, alle emozioni e a ciò che il momento rivela.",
+      "Un ascolto attivo e intuitivo, dove la sensibilità diventa sensitività per percepire ciò che emerge oltre le parole, lasciando spazio a ciò che il momento rivela.",
   },
   {
     variant: "trasformazione" as const,
     titolo: "Trasformazione",
     descrizione:
-      "Accompagno con consapevolezza per accogliere ciò che si muove e chiede di essere visto, affinché possa trovare spazio e nuova vita.",
+      "Accompagno con consapevolezza ciò che si muove e chiede di essere visto, affinché possa trovare spazio e nuova vita. Un processo di trasformazione che nasce dal riconoscere intuizioni, sensazioni e movimenti interiori come porte verso nuove possibilità.",
+  },
+];
+
+// Dal più recente al più vecchio.
+const studi = [
+  {
+    anni: "2024 – in corso",
+    titolo:
+      "Formazione Quadriennale in Counseling Transpersonale Integrale – Metodo Biotransenergetica (BTE)",
+    dove: "Scuola OmVerbania – Integral Transpersonal Institute",
+  },
+  {
+    anni: "2019 – 2023",
+    titolo: "Formazione Triennale Insegnante Yoga, specializzazione Anukalana Yoga",
+    dove: "Scuola Samadhi Yoga – Firenze",
+  },
+  {
+    anni: "2021",
+    titolo: "Corso di Aromaterapia e Oli Essenziali",
+    dove: "con il Dott. Leonardo Paoluzzi",
   },
 ];
 
@@ -56,8 +76,8 @@ export default function LaMiaStoria() {
             possiamo vivere con più autenticità, presenza e armonia?
           </p>
           <p className="font-body text-lg">
-            Nella vita ho attraversato, come te, diversi periodi di crisi, transizione e cambiamento, che mi
-            hanno portata a cercare e sperimentare strumenti capaci di sostenere questi momenti.
+            Nella vita ho attraversato, come te, diverse soglie: momenti di crisi, transizione e
+            cambiamento che mi hanno spinta a cercare strumenti capaci di sostenere questi passaggi.
           </p>
         </div>
       </section>
@@ -67,11 +87,17 @@ export default function LaMiaStoria() {
 
         <div className="order-2 flex max-w-md flex-col items-start gap-4 text-left md:order-1">
           <p className="font-body text-lg">
-            Un incontro fondamentale è stato quello con gli insegnamenti di Paramahansa Yogananda, che da
-            allora accompagnano e orientano il mio cammino.
+            Da più di dieci anni percorro la via dello Yoga e della meditazione; il Counseling
+            Transpersonale mi ha aperto al mondo archetipico, offrendo mappe e una metodologia per i
+            processi di risveglio. Il disegno dei Mandala mi ha mostrato la potenza del simbolo come via
+            di trasformazione e centratura.
           </p>
           <p className="font-body text-lg">
-            Passo dopo passo, da questo percorso è nato un progetto: Il Mandala Interiore, uno spazio di
+            Un incontro fondamentale è stato quello con gli insegnamenti di Paramahansa Yogananda, più di
+            otto anni fa: da allora accompagnano e orientano il mio cammino.
+          </p>
+          <p className="font-body text-lg">
+            Passo dopo passo, da questo percorso è nato un progetto: <strong className="font-semibold">Il Mandala Interiore</strong>, uno spazio di
             ascolto, presenza e scoperta, in cui tornare al proprio centro e riconnettersi con la propria
             essenza.
           </p>
@@ -129,12 +155,17 @@ export default function LaMiaStoria() {
             Siamo in una continua evoluzione, lo studio e la pratica personale sono fondamentali quanto gli
             incontri in cui scelgo di accompagnarti.
           </p>
-          <p className="font-body text-lg">
-            2019–2023 — Formazione triennale Insegnante Yoga, Samadhi Ssdrl <br></br>
-            2021 — Corso Oli Essenziali con il Dott. Leonardo Paoluzzi <br></br>
-            2024 –in corso — Formazione in Counseling Transpersonale -Metodo Biotransenergetica (BTE),
-            Scuola OmVerbania
-          </p>
+          <ul className="font-body flex flex-col gap-4 text-lg">
+            {studi.map((studio) => (
+              <li key={studio.anni} className="flex flex-col">
+                <span className="font-heading text-heading text-sm font-semibold tracking-[0.03em]">
+                  {studio.anni}
+                </span>
+                <span>{studio.titolo}</span>
+                <span className="italic">{studio.dove}</span>
+              </li>
+            ))}
+          </ul>
           <p className="font-body text-lg">
             Dal 2020 coltivo il disegno dei mandala e delle geometrie sacre attraverso un percorso
             personale nato spontaneamente dall’esperienza diretta e approfondito nel tempo attraverso
@@ -144,8 +175,8 @@ export default function LaMiaStoria() {
 
         <div className="order-1 md:order-2 border-heading/20 bg-heading/5 relative aspect-[4/5] w-full max-w-xs shrink-0 overflow-hidden rounded-lg border">
           <Image
-            src="/placeholder_verticale.jpg"
-            alt="Descrizione della foto"
+            src="/foto_roxana_primo_piano.jpeg"
+            alt="Roxana Zlate"
             fill
             className="object-cover"
           />

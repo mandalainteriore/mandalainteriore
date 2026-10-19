@@ -2,6 +2,8 @@ import type { Simbolo } from "@/components/KeyIcon";
 
 export type Chiave = {
   titolo: string;
+  /** Riga in corsivo sotto il titolo (facoltativa) */
+  sottotitolo?: string;
   /** Testo delle card in homepage */
   descrizione: string;
   /** Riassunto di una riga per le pillole nella pagina Percorsi */
@@ -13,9 +15,11 @@ export type Chiave = {
 export const chiavi: Chiave[] = [
   {
     titolo: "Counseling transpersonale",
+    sottotitolo: "Biotransenergetica",
     descrizione:
-      "Uno spazio di ascolto autentico per comprenderti, sciogliere i blocchi interiori e ritrovare il tuo centro.",
-    sintesi: "Ascolto e parola per sciogliere i blocchi e ritrovare il tuo centro.",
+      "Uno spazio autentico di consapevolezza per ritrovare il tuo centro e risvegliare le tue potenzialità più profonde.",
+    sintesi:
+      "Uno spazio autentico di consapevolezza per ritrovare il tuo centro e risvegliare le tue potenzialità più profonde.",
     href: "/counseling-transpersonale",
     simbolo: "fiore-della-vita",
   },
@@ -28,11 +32,12 @@ export const chiavi: Chiave[] = [
     simbolo: "pentagramma",
   },
   {
-    titolo: "Mandala – arteterapia",
+    titolo: "Mandala – Creatività consapevole",
+    sottotitolo: "Geometrie sacre",
     descrizione:
       "Colori, simboli e geometrie sacre diventano strumenti per dare forma al tuo mondo interiore e favorire la trasformazione.",
     sintesi: "Colori e simboli per dare forma al tuo mondo interiore.",
-    href: "/mandala-arteterapia",
+    href: "/mandala-creativita-consapevole",
     simbolo: "esagramma",
   },
 ];

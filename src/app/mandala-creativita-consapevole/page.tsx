@@ -8,49 +8,52 @@ import Divider from "@/components/Divider";
 const destinatari = [
   {
     variant: "ascolto" as const,
-    titolo: "Chi cerca un altro linguaggio",
+    titolo: "A chi cerca un altro linguaggio",
     descrizione:
-      "Chi trova difficile mettere in parole ciò che sente, e cerca un canale diverso per esprimersi.",
+      "Per chi desidera esprimersi in modo diverso, lasciando che forme e colori diventino voce del proprio mondo interiore.",
   },
   {
     variant: "presenza" as const,
-    titolo: "Chi vuole rallentare",
+    titolo: "A chi desidera esplorare sé stesso",
     descrizione:
-      "Chi ha bisogno di un tempo sospeso, in cui il fare diventa presenza e ascolto di sé.",
+      "Per chi vuole concedersi un tempo tutto per sé, in cui il gesto creativo diventa un’occasione di ascolto e consapevolezza.",
   },
   {
     variant: "trasformazione" as const,
-    titolo: "Chi è in un momento di crescita",
+    titolo: "A chi attraversa un cambiamento",
     descrizione:
-      "Chi sta attraversando un cambiamento e cerca una forma capace di accompagnarlo.",
+      "Quando la mente cerca ordine, spesso disegna cerchi. Il Mandala può offrire uno spazio di quiete e centratura nei momenti di caos o transizione.",
   },
 ];
 
-export default function MandalaArteterapia() {
+export default function MandalaCreativitaConsapevole() {
   return (
     <>
       <main className="relative flex h-[90svh] flex-col items-center justify-center overflow-hidden">
         <SfondoResponsive src="/sfondo_chiave.jpg" srcMobile="/sfondo_chiave_mobile.jpg" priority />
 
-        <h1 className="font-heading text-heading text-4xl font-semibold tracking-tight text-center px-6">
-          Mandala – Arteterapia
-        </h1>
+        <div className="flex flex-col items-center gap-2 px-6 text-center">
+          <h1 className="font-heading text-heading text-4xl font-semibold tracking-tight">
+            Mandala – Creatività consapevole
+          </h1>
+          <p className="font-body text-heading text-2xl italic">Geometrie sacre</p>
+        </div>
       </main>
 
       <section className="flex flex-col items-center gap-4 px-6 pt-16 md:pt-24 pb-12 text-center">
         <h2 className="font-heading text-heading text-3xl font-semibold tracking-wide">
           Cos&rsquo;è
         </h2>
-        <p className="font-body italic text-xl max-w-xl">
-          Non serve saper disegnare: il mandala non chiede talento, chiede
-          presenza.
+        <p className="font-body text-lg max-w-xl">
+          Nel linguaggio della psicologia archetipica, il Mandala è una forma
+          che richiama il Sé e porta ordine dove c&rsquo;è caos. Il disegno
+          circolare diventa un linguaggio simbolico e antico: attraverso
+          colori, forme e geometrie sacre permette di esprimere ciò che spesso
+          non trova parole.
         </p>
         <p className="font-body text-lg max-w-xl">
-          L&rsquo;arteterapia con il mandala utilizza il disegno circolare
-          come strumento espressivo: colori, forme e simboli diventano un
-          linguaggio per dare voce a ciò che è difficile dire a parole. Non
-          conta il risultato estetico, ma il processo che si attraversa
-          mentre il mandala prende forma.
+          La bellezza non è nel risultato, ma nel viaggio: un processo che apre
+          spazio alla trasformazione mentre il Mandala si rivela.
         </p>
       </section>
 
@@ -70,17 +73,33 @@ export default function MandalaArteterapia() {
         <h2 className="font-heading text-heading text-3xl font-semibold tracking-wide">
           Come si svolge
         </h2>
+        <p className="font-body italic text-xl max-w-xl">
+          Non serve saper disegnare: il Mandala non chiede talento, chiede
+          presenza.
+        </p>
         <p className="font-body text-lg max-w-xl">
-          Ogni incontro parte da uno spazio libero, in cui colori e materiali
-          sono a disposizione senza schemi predefiniti. A seconda del
-          momento, il percorso può essere più guidato o più intuitivo: ciò
-          che conta è lasciare che la forma emerga, e poi accogliere insieme
-          quello che racconta.
+          Ogni incontro si apre con uno spazio in cui forme, colori e simboli
+          sacri diventano voce di parti profonde di te. Si dà voce a ciò che
+          emerge dall&rsquo;inconscio, dal campo e dalla propria dimensione
+          intuitiva.
+        </p>
+        <p className="font-body text-lg max-w-xl">
+          Il processo creativo può essere accompagnato da pratiche meditative e
+          di Biotransenergetica, favorendo ascolto, presenza, centratura e
+          trasformazione.
         </p>
       </section>
 
       <section className="flex flex-col items-center px-6 py-4">
-        <div className="border-heading/20 bg-heading/5 aspect-square w-full max-w-xs rounded-lg border" />
+        <div className="border-heading/20 bg-heading/5 relative aspect-square w-full max-w-xs overflow-hidden rounded-lg border">
+          <Image
+            src="/mandala_4.jpg"
+            alt="Mandala con stella su fondo scuro"
+            fill
+            sizes="320px"
+            className="object-cover"
+          />
+        </div>
       </section>
 
       <section className="flex flex-col items-center px-6 pt-4 pb-16 text-center">

@@ -4,12 +4,15 @@
   --background: #eddcc8;
   --foreground: #000000;
   --heading: #553b20;
+  /* Marrone del logo, ricavato dall'immagine della cliente */
+  --logo: #321502;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-heading: var(--heading);
+  --color-logo: var(--logo);
   --font-heading: var(--font-cinzel);
   --font-body: var(--font-cormorant);
   --font-script: var(--font-great-vibes);

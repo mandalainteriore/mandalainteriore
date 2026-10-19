@@ -12,7 +12,7 @@ import { chiavi } from "@/data/chiavi";
 export default function Home() {
   return (
     <>
-      <main className="relative flex min-h-svh flex-col items-center justify-center overflow-hidden">
+      <main className="relative flex min-h-svh flex-col items-center justify-center overflow-hidden pt-28 pb-32">
         <Image
           src="/sfondo_pergamena.jpg"
           alt=""
@@ -21,7 +21,7 @@ export default function Home() {
           className="object-cover -z-10"
         />
 
-        <section className="flex flex-col items-center gap-4 text-center px-6 translate-y-6">
+        <section className="flex flex-col items-center gap-4 text-center px-6">
           <h1 className="font-heading text-heading text-4xl font-semibold tracking-tight">
             Mandala Interiore
           </h1>
@@ -30,11 +30,18 @@ export default function Home() {
             <span className="font-script text-3xl sm:text-4xl">con Roxana Zlate</span>
             <span aria-hidden="true" className="bg-heading/40 h-px w-10 sm:w-16" />
           </p>
-          <p className="font-body mt-3 italic text-xl max-w-md">
-            Ogni persona custodisce dentro di sé le risorse per stare bene.
-            <br />
-            A volte serve soltanto la chiave giusta per ritrovarle.
-          </p>
+          <div className="font-body mt-3 flex max-w-xl flex-col gap-3">
+            <p className="italic text-lg sm:text-xl">
+              Uno spazio di consapevolezza e trasformazione per ritrovare il tuo
+              centro e la tua vera essenza.
+            </p>
+            <p className="text-base sm:text-lg">
+              Ti accompagno attraverso percorsi di Counseling Transpersonale
+              radicati nella Biotransenergetica, la creazione dei Mandala e le
+              pratiche di Yoga e Meditazione, per risvegliare le tue qualità più
+              autentiche.
+            </p>
+          </div>
         </section>
 
         <PortaEntra href="#eventi" />
@@ -64,11 +71,18 @@ export default function Home() {
       >
         <div className="flex flex-col items-center gap-4">
           <h2 className="font-heading text-heading max-w-xl text-3xl font-semibold tracking-tight">
-            Scegli la chiave che senti più vicina
+            Scegli le chiavi che ti risuonano
           </h2>
           <div className="font-body text-lg max-w-xl">
-            <p>Accompagno le persone a ritrovare l’equilibrio, chiarezza e presenza.</p>
-            <p className="italic">
+            <p className="mb-3 italic">
+              Custodisci dentro di te risorse infinite: a volte serve soltanto la
+              chiave giusta per ritrovarle.
+            </p>
+            <p>
+              Ti accompagno in un percorso di chiarezza, radicamento e
+              consapevolezza verso la realizzazione del tuo Sé.
+            </p>
+            <p>
               Insieme daremo forma a un percorso integrato che possa accompagnarti nel tuo cammino.
             </p>
           </div>
@@ -84,9 +98,14 @@ export default function Home() {
               className="group border-heading/20 flex cursor-pointer flex-col items-center gap-3 rounded-lg border bg-[url(/sfondo_card.jpg)] bg-cover bg-center px-5 py-6 shadow-sm transition-all duration-300 hover:-translate-y-2 hover:border-heading/50 hover:shadow-lg"
             >
               <KeyIcon simbolo={chiave.simbolo} className="text-heading h-20 w-auto transition-transform duration-300 group-hover:scale-110" />
-              <h3 className="font-heading text-heading text-sm font-semibold uppercase tracking-[0.03em]">
-                {chiave.titolo}
-              </h3>
+              <div className="flex flex-col items-center gap-1">
+                <h3 className="font-heading text-heading text-sm font-semibold uppercase tracking-[0.03em]">
+                  {chiave.titolo}
+                </h3>
+                {chiave.sottotitolo && (
+                  <p className="font-body text-heading text-base italic">{chiave.sottotitolo}</p>
+                )}
+              </div>
               <p className="font-body text-base max-w-52">
                 {chiave.descrizione}
               </p>
@@ -116,8 +135,8 @@ export default function Home() {
             porta.
           </p>
           <p className="font-body text-lg">
-            Da anni percorro un cammino di consapevolezza e trasformazione, intrecciando counseling,
-            arteterapia, yoga, meditazione e aromaterapia.
+            Da anni percorro un cammino di consapevolezza e trasformazione, intrecciando il Counseling
+            Transpersonale, la creazione dei Mandala, le pratiche Yoga e la Meditazione.
           </p>
           <p className="font-body text-lg">
             Oggi desidero mettere ciò che ho incontrato e imparato lungo il mio percorso al servizio di chi
@@ -173,8 +192,8 @@ export default function Home() {
 
         <div className="border-heading/20 bg-heading/5 relative order-1 h-56 w-56 shrink-0 overflow-hidden rounded-full border md:order-2 md:h-80 md:w-80">
           <Image
-            src="/placeholder_quadrato.jpg"
-            alt="Descrizione della foto"
+            src="/disegno_mandala_home.jpeg"
+            alt="Disegno di un mandala con il fiore della vita"
             fill
             className="object-cover"
           />

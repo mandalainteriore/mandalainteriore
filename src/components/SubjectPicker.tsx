@@ -6,7 +6,7 @@ const oggetti = [
   "Informazioni generali",
   "Counseling transpersonale",
   "Yoga Anukalana e meditazione",
-  "Mandala – arteterapia",
+  "Mandala – Creatività consapevole",
   "Aromaterapia",
 ];
 

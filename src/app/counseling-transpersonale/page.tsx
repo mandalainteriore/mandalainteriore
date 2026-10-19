@@ -9,9 +9,12 @@ export default function CounselingTranspersonale() {
       <main className="relative flex h-[90svh] flex-col items-center justify-center overflow-hidden">
         <SfondoResponsive src="/sfondo_chiave.jpg" srcMobile="/sfondo_chiave_mobile.jpg" priority />
 
-        <h1 className="font-heading text-heading text-4xl font-semibold tracking-tight text-center px-6">
-          Counseling transpersonale
-        </h1>
+        <div className="flex flex-col items-center gap-2 px-6 text-center">
+          <h1 className="font-heading text-heading text-4xl font-semibold tracking-tight">
+            Counseling transpersonale
+          </h1>
+          <p className="font-body text-heading text-2xl italic">Biotransenergetica</p>
+        </div>
       </main>
 
       <section className="flex flex-col items-center gap-4 px-6 pt-16 md:pt-24 pb-12 text-center">
@@ -42,9 +45,17 @@ export default function CounselingTranspersonale() {
           Come si svolge
         </h2>
         <p className="font-body text-lg max-w-xl">
-          Il lavoro avviene in un clima di presenza e ascolto, dove il counselor facilita l’emergere di
-          intuizioni, immagini interiori e nuove comprensioni che guidano verso una maggiore libertà
-          interiore e una vita più coerente con la propria essenza.
+          Attraverso incontri individuali di Counseling, in presenza oppure online, ti accompagno
+          nell’esplorazione del mondo interiore e nel ritrovare le tue potenzialità autentiche.
+          Meditazioni, respirazione, lavoro con le emozioni e pratiche psico-corporee e archetipiche
+          diventano strumenti per ritrovare libertà interiore e un contatto più vivo con il proprio Sé.
+        </p>
+        <p className="font-body text-lg max-w-xl">
+          I <strong className="font-semibold">Seminari di Biotransenergetica (BTE)</strong> di gruppo sono
+          esperienze immersive che permettono di entrare in relazione diretta con le Forze
+          Archetipiche: qualità universali che abitano la psiche e il campo. Attraverso meditazioni
+          guidate, pratiche psicocorporee e rituali di gruppo, si attiva un processo di trasformazione
+          che fa emergere saggezze profonde, portando chiarezza, centratura e insight.
         </p>
 
         <Divider className="text-heading h-4 w-40" />

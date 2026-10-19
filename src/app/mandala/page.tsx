@@ -16,10 +16,16 @@ export default function Mandala() {
       </main>
 
       <section className="flex flex-col items-center gap-10 px-6 pt-16 md:pt-24 pb-16 text-center">
-        <p className="font-body italic text-xl max-w-xl">
-          Ogni mandala è un frammento di un cammino, un colore che ha trovato
-          la sua forma.
-        </p>
+        <div className="font-body flex max-w-xl flex-col gap-3">
+          <p className="italic text-xl">
+            Ogni mandala è un frammento di un cammino, una storia che ha preso
+            forma.
+          </p>
+          <p className="text-lg">
+            Nel cerchio, il Sé si manifesta come un viaggio verso il centro, dove
+            l&rsquo;anima si ricompone e ritrova l&rsquo;unità dell&rsquo;essere.
+          </p>
+        </div>
 
         <Divider className="text-heading h-4 w-40" />
 

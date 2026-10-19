@@ -7,6 +7,20 @@ import Link from "next/link";
 import KeyIcon from "@/components/KeyIcon";
 import { chiavi } from "@/data/chiavi";
 
+// Elenco puntato con un piccolo rombo al posto del pallino.
+function Elenco({ voci }: { voci: string[] }) {
+  return (
+    <ul className="font-body flex flex-col gap-2 text-lg">
+      {voci.map((voce) => (
+        <li key={voce} className="flex items-baseline gap-3">
+          <span aria-hidden="true" className="bg-heading size-1.5 shrink-0 -translate-y-0.5 rotate-45" />
+          {voce}
+        </li>
+      ))}
+    </ul>
+  );
+}
+
 export default function Percorsi() {
   return (
     <>
@@ -20,13 +34,8 @@ export default function Percorsi() {
 
       <section className="flex flex-col items-center gap-4 px-6 pt-16 md:pt-24 pb-12 text-center">
         <p className="font-body italic text-xl max-w-xl">
-          Ogni cammino ha una forma diversa: solitario, condiviso, o intrecciato
-          alla vita di un&rsquo;organizzazione.
-        </p>
-        <p className="font-body text-lg max-w-xl">
-          Il percorso nasce dalla chiave che senti più vicina e può essere
-          vissuto in tre forme: individuale, di gruppo o all&rsquo;interno di
-          un&rsquo;organizzazione.
+          Ogni cammino ha una forma diversa: può essere un viaggio in solitaria
+          o un percorso condiviso, intrecciando le chiavi che più ti risuonano.
         </p>
 
         <ul className="mt-4 mb-2 grid w-full max-w-4xl grid-cols-1 gap-4 md:grid-cols-3">
@@ -44,6 +53,9 @@ export default function Percorsi() {
                   <span className="font-heading text-heading text-xs font-semibold uppercase tracking-[0.03em]">
                     {chiave.titolo}
                   </span>
+                  {chiave.sottotitolo && (
+                    <span className="font-body text-heading -mt-1 text-sm italic">{chiave.sottotitolo}</span>
+                  )}
                   <span className="font-body text-base leading-snug">{chiave.sintesi}</span>
                 </span>
               </Link>
@@ -55,10 +67,10 @@ export default function Percorsi() {
       </section>
 
       <section className="grid grid-cols-1 items-center gap-10 px-6 py-10 md:grid-cols-2 md:py-16 md:gap-16 md:px-16">
-        <div className="border-heading/20 bg-heading/5 relative aspect-[4/5] w-full max-w-xs justify-self-center overflow-hidden rounded-lg border">
+        <div className="border-heading/20 bg-heading/5 relative aspect-[3/2] w-full max-w-md justify-self-center overflow-hidden rounded-lg border">
           <Image
-            src="/placeholder_verticale.jpg"
-            alt="Descrizione della foto"
+            src="/foto_seduta.jpg"
+            alt="Una seduta individuale"
             fill
             className="object-cover"
           />
@@ -72,11 +84,18 @@ export default function Percorsi() {
             Un tempo e uno spazio interamente dedicati a te.
           </p>
           <p className="font-body text-lg">
-            Un percorso costruito sui tuoi tempi e i tuoi bisogni, in un
+            Un percorso costruito sui tuoi ritmi e sulle tue necessità, in un
             rapporto di ascolto diretto e continuativo. Le sedute individuali
             permettono di esplorare in profondità ciò che emerge, con la
             libertà di seguire il ritmo che ti è più naturale.
           </p>
+          <Elenco
+            voci={[
+              "Sedute di Counseling Transpersonale",
+              "Espressione creativa attraverso il disegno dei Mandala",
+              "Lezioni di Yoga e Meditazione",
+            ]}
+          />
           <a
             href="/contatti"
             className="font-heading text-heading border-heading hover:bg-heading hover:text-background mt-2 rounded-full border px-6 py-2 text-sm font-semibold uppercase tracking-[0.03em] transition-colors"
@@ -96,10 +115,18 @@ export default function Percorsi() {
           </p>
           <p className="font-body text-lg">
             Ogni persona è una parte viva del campo: lo informa, lo sostiene e ne amplifica la forza.
-            Ogni incontro diventa così un campo vivo, un luogo in cui l’energia collettiva sostiene il
-            processo individuale e dove le pratiche si aprono come porte d’accesso a stati di presenza,
+            Ogni incontro si trasforma così in un campo vivo, un luogo in cui l’energia collettiva sostiene
+            il processo individuale e dove le pratiche si aprono come porte d’accesso a stati di presenza,
             intuizione e consapevolezza profonda.
           </p>
+          <Elenco
+            voci={[
+              "Seminari esperienziali di Biotransenergetica ed espressione creativa",
+              "Laboratori di disegno Mandala",
+              "Lezioni di Yoga",
+              "Meditazioni in presenza e online",
+            ]}
+          />
           <a
             href="/contatti"
             className="font-heading text-heading border-heading hover:bg-heading hover:text-background mt-2 rounded-full border px-6 py-2 text-sm font-semibold uppercase tracking-[0.03em] transition-colors"
@@ -108,7 +135,7 @@ export default function Percorsi() {
           </a>
         </div>
 
-        <div className="order-1 md:order-2 border-heading/20 bg-heading/5 relative aspect-[4/5] w-full max-w-xs justify-self-center overflow-hidden rounded-lg border">
+        <div className="order-1 md:order-2 border-heading/20 bg-heading/5 relative aspect-[3/2] w-full max-w-md justify-self-center overflow-hidden rounded-lg border">
           <Image
             src="/foto_gruppo.jpg"
             alt="Un percorso di gruppo con Roxana Zlate"
@@ -119,10 +146,10 @@ export default function Percorsi() {
       </section>
 
       <section className="grid grid-cols-1 items-center gap-10 px-6 py-10 md:grid-cols-2 md:py-16 md:gap-16 md:px-16">
-        <div className="border-heading/20 bg-heading/5 relative aspect-[4/5] w-full max-w-xs justify-self-center overflow-hidden rounded-lg border">
+        <div className="border-heading/20 bg-heading/5 relative aspect-[3/2] w-full max-w-md justify-self-center overflow-hidden rounded-lg border">
           <Image
-            src="/placeholder_verticale.jpg"
-            alt="Descrizione della foto"
+            src="/foto_roxana_ufficio.jpeg"
+            alt="Roxana Zlate al lavoro con un gruppo in azienda"
             fill
             className="object-cover"
           />
@@ -136,11 +163,22 @@ export default function Percorsi() {
             Anche i team hanno bisogno di ritrovare il proprio centro.
           </p>
           <p className="font-body text-lg">
-            In sedici anni di lavoro in azienda ho visto da vicino come l’energia di un gruppo può fluire…
-            oppure disperdersi. Coordinando persone e progetti, ho imparato che le vere difficoltà non
-            nascono dai processi tecnici, ma dalle relazioni: da ciò che accade negli spazi invisibili tra le
-            persone.
+            In sedici anni di lavoro in azienda ho visto come l’energia di un gruppo può fluire… oppure
+            disperdersi. Ho imparato che le vere difficoltà non nascono dai processi tecnici, ma dalle
+            relazioni: da ciò che accade negli spazi invisibili tra le persone. Quando collaborazione,
+            empatia e ascolto emergono, il gruppo respira, si muove insieme e raggiunge risultati con più
+            serenità e meno sforzo.
           </p>
+          <h3 className="font-heading text-heading text-sm font-semibold uppercase tracking-[0.03em]">
+            Team building aziendali
+          </h3>
+          <Elenco
+            voci={[
+              "Seminari esperienziali di Biotransenergetica ed espressione creativa",
+              "Laboratori di disegno Mandala",
+              "Lezioni di Yoga e Meditazione",
+            ]}
+          />
           <a
             href="/contatti"
             className="font-heading text-heading border-heading hover:bg-heading hover:text-background mt-2 rounded-full border px-6 py-2 text-sm font-semibold uppercase tracking-[0.03em] transition-colors"

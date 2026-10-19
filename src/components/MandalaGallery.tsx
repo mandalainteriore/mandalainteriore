@@ -3,13 +3,15 @@
 import { useState } from "react";
 import Image from "next/image";
 
-const mandala = Array.from({ length: 9 }, (_, i) => ({
-  n: i + 1,
-  titolo: `Titolo mandala ${i + 1}`,
-  descrizione: "Breve descrizione del mandala, del suo significato e di come è nato.",
-  // Segnaposto: sostituire con le foto dei mandala.
-  immagine: "/placeholder_quadrato.jpg",
-}));
+// Titoli e descrizioni sono segnaposto, in attesa dei testi della cliente.
+const mandala = ["/mandala_1.jpg", "/mandala_2.jpg", "/mandala_3.jpg", "/mandala_4.jpg"].map(
+  (immagine, i) => ({
+    n: i + 1,
+    titolo: `Titolo mandala ${i + 1}`,
+    descrizione: "Breve descrizione del mandala, del suo significato e di come è nato.",
+    immagine,
+  }),
+);
 
 export default function MandalaGallery() {
   const [selected, setSelected] = useState<number | null>(null);
