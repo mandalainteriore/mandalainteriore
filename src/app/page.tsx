@@ -103,7 +103,7 @@ export default function Home() {
                   {chiave.titolo}
                 </h3>
                 {chiave.sottotitolo && (
-                  <p className="font-body text-heading text-base italic">{chiave.sottotitolo}</p>
+                  <p className="font-body text-heading text-lg font-semibold italic">{chiave.sottotitolo}</p>
                 )}
               </div>
               <p className="font-body text-base max-w-52">

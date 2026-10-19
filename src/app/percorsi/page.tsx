@@ -54,7 +54,7 @@ export default function Percorsi() {
                     {chiave.titolo}
                   </span>
                   {chiave.sottotitolo && (
-                    <span className="font-body text-heading -mt-1 text-sm italic">{chiave.sottotitolo}</span>
+                    <span className="font-body text-heading -mt-1 text-base font-semibold italic">{chiave.sottotitolo}</span>
                   )}
                   <span className="font-body text-base leading-snug">{chiave.sintesi}</span>
                 </span>

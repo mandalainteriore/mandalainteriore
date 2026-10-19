@@ -58,7 +58,9 @@ export default function SiteFooter() {
               </svg>
             </a>
             <a
-              href="#"
+              href="https://www.facebook.com/zlate.roxana"
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label="Facebook"
               className="hover:opacity-70 transition-opacity"
             >
