@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
 // Titoli e descrizioni sono segnaposto, in attesa dei testi della cliente.
@@ -13,22 +13,144 @@ const mandala = ["/mandala_1.jpg", "/mandala_2.jpg", "/mandala_3.jpg", "/mandala
   }),
 );
 
+// Distanza minima in pixel perché un trascinamento col dito conti come "swipe".
+const SOGLIA_SWIPE = 50;
+
+function Freccia({ verso }: { verso: "sinistra" | "destra" }) {
+  return (
+    <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth="1.6" aria-hidden="true">
+      <path d={verso === "sinistra" ? "M15,5 L8,12 L15,19" : "M9,5 L16,12 L9,19"} />
+    </svg>
+  );
+}
+
+function Visualizzatore({
+  indice,
+  onCambia,
+  onChiudi,
+}: {
+  indice: number;
+  onCambia: (delta: number) => void;
+  onChiudi: () => void;
+}) {
+  const inizioTocco = useRef<number | null>(null);
+  const corrente = mandala[indice];
+
+  useEffect(() => {
+    const overflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    function handleKey(event: KeyboardEvent) {
+      if (event.key === "Escape") onChiudi();
+      if (event.key === "ArrowLeft") onCambia(-1);
+      if (event.key === "ArrowRight") onCambia(1);
+    }
+    document.addEventListener("keydown", handleKey);
+    return () => {
+      document.body.style.overflow = overflow;
+      document.removeEventListener("keydown", handleKey);
+    };
+  }, [onCambia, onChiudi]);
+
+  return (
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-label={corrente.titolo}
+      className="fixed inset-0 z-50 flex flex-col bg-black/95 text-white"
+      onClick={onChiudi}
+      onTouchStart={(e) => {
+        inizioTocco.current = e.touches[0].clientX;
+      }}
+      onTouchEnd={(e) => {
+        if (inizioTocco.current === null) return;
+        const delta = e.changedTouches[0].clientX - inizioTocco.current;
+        inizioTocco.current = null;
+        if (Math.abs(delta) > SOGLIA_SWIPE) onCambia(delta < 0 ? 1 : -1);
+      }}
+    >
+      <div className="flex items-center justify-between px-5 py-4">
+        <span className="font-heading text-sm tracking-[0.03em] text-white/70">
+          {indice + 1} / {mandala.length}
+        </span>
+        <button
+          onClick={onChiudi}
+          aria-label="Chiudi"
+          className="cursor-pointer p-1 transition-opacity hover:opacity-70"
+        >
+          <svg viewBox="0 0 24 24" className="h-7 w-7" fill="none" stroke="currentColor" strokeWidth="1.4" aria-hidden="true">
+            <path d="M5,5 L19,19 M19,5 L5,19" />
+          </svg>
+        </button>
+      </div>
+
+      <figure className="flex min-h-0 flex-1 flex-col items-center justify-center gap-4 pb-6">
+        {/* Quadrato grande quanto lo schermo consente, lasciando spazio a barra e didascalia */}
+        <div
+          onClick={(e) => e.stopPropagation()}
+          className="relative aspect-square w-[min(100vw,calc(100svh-12rem))] sm:w-[min(92vw,calc(100svh-12rem))]"
+        >
+          <Image
+            key={corrente.immagine}
+            src={corrente.immagine}
+            alt={corrente.titolo}
+            fill
+            priority
+            sizes="100vw"
+            className="object-contain"
+          />
+        </div>
+        <figcaption
+          onClick={(e) => e.stopPropagation()}
+          className="flex max-w-xl flex-col items-center gap-1 px-6 text-center"
+        >
+          <span className="font-heading text-base font-semibold uppercase tracking-[0.03em]">
+            {corrente.titolo}
+          </span>
+          <span className="font-body text-lg text-white/85">{corrente.descrizione}</span>
+        </figcaption>
+      </figure>
+
+      <button
+        onClick={(e) => {
+          e.stopPropagation();
+          onCambia(-1);
+        }}
+        aria-label="Precedente"
+        className="absolute top-1/2 left-3 -translate-y-1/2 cursor-pointer rounded-full bg-black/40 p-2 transition-colors hover:bg-white/15 sm:left-6"
+      >
+        <Freccia verso="sinistra" />
+      </button>
+      <button
+        onClick={(e) => {
+          e.stopPropagation();
+          onCambia(1);
+        }}
+        aria-label="Successivo"
+        className="absolute top-1/2 right-3 -translate-y-1/2 cursor-pointer rounded-full bg-black/40 p-2 transition-colors hover:bg-white/15 sm:right-6"
+      >
+        <Freccia verso="destra" />
+      </button>
+    </div>
+  );
+}
+
 export default function MandalaGallery() {
   const [selected, setSelected] = useState<number | null>(null);
 
-  const goTo = (delta: number) => {
-    if (selected === null) return;
-    const total = mandala.length;
-    setSelected(((selected - 1 + delta + total) % total) + 1);
-  };
+  const cambia = useCallback(
+    (delta: number) =>
+      setSelected((i) => (i === null ? i : (i + delta + mandala.length) % mandala.length)),
+    [],
+  );
+  const chiudi = useCallback(() => setSelected(null), []);
 
   return (
     <>
       <div className="grid w-full max-w-4xl grid-cols-1 gap-10 sm:grid-cols-3">
-        {mandala.map(({ n, titolo, descrizione, immagine }) => (
+        {mandala.map(({ n, titolo, descrizione, immagine }, i) => (
           <figure key={n} className="flex flex-col gap-3">
             <button
-              onClick={() => setSelected(n)}
+              onClick={() => setSelected(i)}
               aria-label={`Apri ${titolo}`}
               className="border-heading/20 bg-heading/5 group relative aspect-square overflow-hidden rounded-lg border transition-all duration-300 hover:-translate-y-1 hover:border-heading/50 hover:shadow-lg cursor-pointer"
             >
@@ -51,61 +173,7 @@ export default function MandalaGallery() {
       </div>
 
       {selected !== null && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-12 sm:px-6"
-          onClick={() => setSelected(null)}
-        >
-          <button
-            onClick={() => setSelected(null)}
-            aria-label="Chiudi"
-            className="text-background absolute top-6 right-6 font-heading text-2xl transition-opacity hover:opacity-70 cursor-pointer"
-          >
-            ×
-          </button>
-
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              goTo(-1);
-            }}
-            aria-label="Precedente"
-            className="text-background absolute left-4 font-heading text-3xl transition-opacity hover:opacity-70 cursor-pointer sm:left-8"
-          >
-            ‹
-          </button>
-
-          <figure
-            onClick={(e) => e.stopPropagation()}
-            className="flex w-full max-w-md flex-col items-center gap-4"
-          >
-            <div className="bg-background relative aspect-square w-full overflow-hidden rounded-lg">
-              <Image
-                src={mandala[selected - 1].immagine}
-                alt={mandala[selected - 1].titolo}
-                fill
-                sizes="(min-width: 448px) 448px, 100vw"
-                className="object-cover"
-              />
-            </div>
-            <figcaption className="text-background flex flex-col items-center gap-1 text-center">
-              <span className="font-heading text-base font-semibold uppercase tracking-[0.03em]">
-                {mandala[selected - 1].titolo}
-              </span>
-              <span className="font-body text-lg">{mandala[selected - 1].descrizione}</span>
-            </figcaption>
-          </figure>
-
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              goTo(1);
-            }}
-            aria-label="Successivo"
-            className="text-background absolute right-4 font-heading text-3xl transition-opacity hover:opacity-70 cursor-pointer sm:right-8"
-          >
-            ›
-          </button>
-        </div>
+        <Visualizzatore indice={selected} onCambia={cambia} onChiudi={chiudi} />
       )}
     </>
   );

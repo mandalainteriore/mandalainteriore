@@ -31,7 +31,7 @@ const studi = [
     anni: "2024 – in corso",
     titolo:
       "Formazione Quadriennale in Counseling Transpersonale Integrale – Metodo Biotransenergetica (BTE)",
-    dove: "Scuola OmVerbania – Integral Transpersonal Institute",
+    dove: "Scuola OmVerbania",
   },
   {
     anni: "2019 – 2023",
