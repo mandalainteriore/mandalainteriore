@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import MandalaLogo from "@/components/MandalaLogo";
 import SiteFooter from "@/components/SiteFooter";
@@ -21,6 +22,12 @@ function Elenco({ voci }: { voci: string[] }) {
   );
 }
 
+export const metadata: Metadata = {
+  title: "Percorsi",
+  description:
+    "Percorsi individuali, di gruppo e aziendali di Counseling Transpersonale, Biotransenergetica, Mandala, Yoga e Meditazione, in presenza e online.",
+};
+
 export default function Percorsi() {
   return (
     <>
@@ -33,7 +40,7 @@ export default function Percorsi() {
       </main>
 
       <section className="flex flex-col items-center gap-4 px-6 pt-16 md:pt-24 pb-12 text-center">
-        <p className="font-body italic text-xl max-w-xl">
+        <p className="font-body max-w-2xl text-[1.375rem] leading-snug italic md:text-2xl">
           Ogni cammino ha una forma diversa: può essere un viaggio in solitaria
           o un percorso condiviso, intrecciando le chiavi che più ti risuonano.
         </p>

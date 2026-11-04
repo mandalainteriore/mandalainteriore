@@ -22,6 +22,15 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Scheda del mandala su mobile: foto + titolo sempre al centro dello schermo, nella stessa
+   posizione per tutti i mandala (la descrizione si apre in un pannello a parte).
+   --r è il rapporto larghezza/altezza della foto. */
+@media (max-width: 1023px) {
+  .scheda-al-centro {
+    padding-top: max(0px, calc((100svh - 11rem - min(100vw / var(--r), 100svh - 12rem)) / 2));
+  }
+}
+
 /* Se JavaScript non parte, il loader sparisce comunque dopo qualche secondo. */
 @keyframes loader-sicurezza {
   to {

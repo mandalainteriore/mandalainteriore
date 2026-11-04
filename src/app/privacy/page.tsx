@@ -4,6 +4,7 @@ import Divider from "@/components/Divider";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
+  description: "Informativa sul trattamento dei dati personali del sito Mandala Interiore di Roxana Zlate.",
 };
 
 function Sezione({

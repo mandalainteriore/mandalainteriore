@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import MandalaLogo from "@/components/MandalaLogo";
 import PillarIcon from "@/components/PillarIcon";
@@ -44,6 +45,12 @@ const studi = [
     dove: "con il Dott. Leonardo Paoluzzi",
   },
 ];
+
+export const metadata: Metadata = {
+  title: "La mia storia",
+  description:
+    "Chi è Roxana Zlate: dalla consulenza internazionale al Counseling Transpersonale, allo Yoga e ai Mandala. La storia e la formazione dietro Mandala Interiore.",
+};
 
 export default function LaMiaStoria() {
   return (
@@ -175,10 +182,10 @@ export default function LaMiaStoria() {
 
         <div className="order-1 md:order-2 border-heading/20 bg-heading/5 relative aspect-[4/5] w-full max-w-xs shrink-0 overflow-hidden rounded-lg border">
           <Image
-            src="/foto_roxana_primo_piano.jpeg"
-            alt="Roxana Zlate"
+            src="/roxana_profilo_bianco_nero.jpg"
+            alt="Ritratto in bianco e nero di Roxana Zlate"
             fill
-            className="object-cover"
+            className="object-cover object-[60%_center]"
           />
         </div>
       </section>

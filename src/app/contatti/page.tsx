@@ -1,8 +1,15 @@
+import type { Metadata } from "next";
 import SiteFooter from "@/components/SiteFooter";
 import SubjectPicker from "@/components/SubjectPicker";
 import Divider from "@/components/Divider";
 import SfondoResponsive from "@/components/SfondoResponsive";
 import MandalaLogo from "@/components/MandalaLogo";
+
+export const metadata: Metadata = {
+  title: "Contatti",
+  description:
+    "Contatta Roxana Zlate per informazioni sui percorsi di Counseling Transpersonale, Mandala, Yoga e Meditazione: scrivi, chiama o compila il modulo.",
+};
 
 export default function Contatti() {
   return (

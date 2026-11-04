@@ -1,7 +1,14 @@
+import type { Metadata } from "next";
 import MandalaLogo from "@/components/MandalaLogo";
 import SiteFooter from "@/components/SiteFooter";
 import SfondoResponsive from "@/components/SfondoResponsive";
 import Divider from "@/components/Divider";
+
+export const metadata: Metadata = {
+  title: "Yoga Anukalana e Meditazione",
+  description:
+    "Yoga Anukalana e Meditazione: movimenti fluidi e naturali, respiro e presenza. Lezioni di yoga in presenza e meditazioni anche online.",
+};
 
 export default function YogaAnukalanaMeditazione() {
   return (

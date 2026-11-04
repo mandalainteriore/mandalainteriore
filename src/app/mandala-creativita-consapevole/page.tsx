@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import MandalaLogo from "@/components/MandalaLogo";
 import PillarIcon from "@/components/PillarIcon";
@@ -25,6 +26,12 @@ const destinatari = [
       "Quando la mente cerca ordine, spesso disegna cerchi. Il Mandala può offrire uno spazio di quiete e centratura nei momenti di caos o transizione.",
   },
 ];
+
+export const metadata: Metadata = {
+  title: "Mandala – Creatività consapevole",
+  description:
+    "Mandala e geometrie sacre come linguaggio simbolico per ascoltarsi e trasformarsi: incontri di creatività consapevole. Non serve saper disegnare.",
+};
 
 export default function MandalaCreativitaConsapevole() {
   return (

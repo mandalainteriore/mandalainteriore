@@ -1,10 +1,25 @@
+import type { Metadata } from "next";
 import MandalaLogo from "@/components/MandalaLogo";
 import SiteFooter from "@/components/SiteFooter";
 import MandalaGallery from "@/components/MandalaGallery";
 import SfondoResponsive from "@/components/SfondoResponsive";
 import Divider from "@/components/Divider";
+import fs from "node:fs";
+import path from "node:path";
+import { mandala } from "@/data/mandala";
+
+export const metadata: Metadata = {
+  title: "Mandala",
+  description:
+    "La galleria dei mandala di Roxana Zlate: opere uniche nate da un cammino interiore. Puoi scegliere un mandala o chiederne uno personalizzato.",
+};
 
 export default function Mandala() {
+  // Mostra solo i mandala la cui foto è davvero presente in /public.
+  const mandalaPresenti = mandala.filter((m) =>
+    fs.existsSync(path.join(process.cwd(), "public", m.immagine)),
+  );
+
   return (
     <>
       <main className="relative flex h-[90svh] flex-col items-center justify-center overflow-hidden">
@@ -17,7 +32,7 @@ export default function Mandala() {
 
       <section className="flex flex-col items-center gap-10 px-6 pt-16 md:pt-24 pb-16 text-center">
         <div className="font-body flex max-w-xl flex-col gap-3">
-          <p className="italic text-xl">
+          <p className="italic text-[1.375rem] leading-snug md:text-2xl">
             Ogni mandala è un frammento di un cammino, una storia che ha preso
             forma.
           </p>
@@ -29,7 +44,13 @@ export default function Mandala() {
 
         <Divider className="text-heading h-4 w-40" />
 
-        <MandalaGallery />
+        <p className="font-body mb-6 max-w-xl text-lg">
+          Puoi scegliere il mandala che più risuona con te oppure chiedere una
+          creazione personalizzata, un&rsquo;opera unica che prende forma dalla
+          tua storia, dalla tua energia e dal tuo cammino.
+        </p>
+
+        <MandalaGallery mandala={mandalaPresenti} />
       </section>
 
       <section className="flex flex-col items-center gap-6 px-6 pt-8 pb-16 md:pb-24 text-center">

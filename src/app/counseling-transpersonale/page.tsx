@@ -1,7 +1,14 @@
+import type { Metadata } from "next";
 import MandalaLogo from "@/components/MandalaLogo";
 import SiteFooter from "@/components/SiteFooter";
 import SfondoResponsive from "@/components/SfondoResponsive";
 import Divider from "@/components/Divider";
+
+export const metadata: Metadata = {
+  title: "Counseling Transpersonale e Biotransenergetica",
+  description:
+    "Counseling Transpersonale e Biotransenergetica (BTE): incontri individuali, in presenza o online, e seminari di gruppo per ritrovare libertà interiore.",
+};
 
 export default function CounselingTranspersonale() {
   return (
