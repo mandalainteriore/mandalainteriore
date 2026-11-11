@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import { Cinzel, Cormorant_Garamond, Great_Vibes } from "next/font/google";
-import Navbar from "@/components/Navbar";
-import Loader from "@/components/Loader";
 import { URL_SITO } from "@/lib/sito";
 import "./globals.css";
 
@@ -47,8 +45,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${cinzel.variable} ${cormorantGaramond.variable} ${greatVibes.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <Loader />
-        <Navbar />
         {children}
       </body>
     </html>

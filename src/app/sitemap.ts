@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { eventi } from "@/data/eventi";
+import { leggiEventi } from "@/sanity/contenuti";
 import { URL_SITO } from "@/lib/sito";
 
 const pagine = [
@@ -14,7 +14,8 @@ const pagine = [
   "/privacy",
 ];
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const eventi = await leggiEventi();
   return [
     ...pagine.map((pagina) => ({
       url: `${URL_SITO}${pagina}`,

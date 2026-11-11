@@ -42,3 +42,6 @@ next-env.d.ts
 
 # materiali di lavoro (documenti della cliente)
 /materiali/
+
+# File di esempio delle impostazioni (senza valori segreti)
+!.env.example

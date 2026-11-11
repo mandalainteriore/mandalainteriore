@@ -20,6 +20,7 @@ function CardEvento({ evento }: { evento: Evento }) {
           fill
           sizes="(min-width: 1024px) 256px, (min-width: 640px) 50vw, 256px"
           className="object-cover transition-transform duration-500 group-hover:scale-105"
+          style={evento.posizione ? { objectPosition: evento.posizione } : undefined}
         />
       </div>
       <div className="flex flex-col items-center gap-1 px-2">

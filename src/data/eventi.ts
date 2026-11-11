@@ -8,6 +8,8 @@ export type Evento = {
   data: string;
   luogo: string;
   immagine: string;
+  /** Punto focale per i ritagli (es. "50% 30%"), impostato nel pannello */
+  posizione?: string;
   /** Testo della pagina dell'evento, un elemento per paragrafo */
   contenuto: string[];
 };

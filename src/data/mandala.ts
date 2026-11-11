@@ -7,6 +7,8 @@ export type Mandala = {
   /** Dimensioni originali, servono a mostrare la foto intera nelle sue proporzioni */
   larghezza: number;
   altezza: number;
+  /** Punto focale per i ritagli (es. "50% 30%"), impostato nel pannello */
+  posizione?: string;
 };
 
 // In attesa del CMS (Sanity): stessa struttura del futuro modello "Mandala".

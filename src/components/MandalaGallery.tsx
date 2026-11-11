@@ -120,7 +120,7 @@ function Visualizzatore({
                 className="hidden h-px w-12 bg-white/40 lg:block"
               />
               <span
-                className="font-body hidden text-lg leading-relaxed text-white/85 lg:block"
+                className="font-body hidden whitespace-pre-line text-lg leading-relaxed text-white/85 lg:block"
               >
                 {corrente.descrizione}
               </span>
@@ -184,7 +184,7 @@ function Visualizzatore({
             <p className="font-heading mb-3 text-base font-semibold uppercase tracking-[0.03em]">
               {corrente.titolo}
             </p>
-            <p className="font-body text-lg leading-relaxed text-white/85">{corrente.descrizione}</p>
+            <p className="font-body text-lg leading-relaxed text-white/85 whitespace-pre-line">{corrente.descrizione}</p>
             <button
               onClick={() => setCassettoDi(null)}
               className="font-heading mt-6 cursor-pointer rounded-full border border-white/40 px-6 py-2 text-xs font-semibold uppercase tracking-[0.03em] transition-colors hover:bg-white/10"
@@ -211,7 +211,7 @@ export default function MandalaGallery({ mandala }: { mandala: Mandala[] }) {
   return (
     <>
       <div className="grid w-full max-w-4xl grid-cols-1 items-start gap-x-10 gap-y-8 sm:grid-cols-3">
-        {mandala.map(({ titolo, immagine }, i) => (
+        {mandala.map(({ titolo, immagine, posizione }, i) => (
           <figure key={immagine} className="flex flex-col gap-3">
             <button
               onClick={() => setSelected(i)}
@@ -224,6 +224,7 @@ export default function MandalaGallery({ mandala }: { mandala: Mandala[] }) {
                 fill
                 sizes="(min-width: 896px) 290px, (min-width: 640px) 33vw, 100vw"
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
+                style={posizione ? { objectPosition: posizione } : undefined}
               />
               {/* Icona di ingrandimento, solo al passaggio del mouse */}
               <span
