@@ -31,7 +31,7 @@ export type Seo = { titolo?: string; descrizione?: string };
 export type Hero = { titolo: string; sfondo: Foto; sfondoMobile?: Foto };
 
 export type Homepage = {
-  hero: { titolo: string; sottotitolo: string; frase: string; testo: Testo };
+  hero: { titolo: string; sottotitolo: string; testo: Testo };
   eventi: { titolo: string; frase: string };
   chiavi: { titolo: string; frase: string; testo: Testo };
   storia: { titolo: string; frase: string; testo: Testo; foto: Foto };
@@ -110,7 +110,12 @@ export type Contatti = {
   seo: Seo;
 };
 
-export type Impostazioni = { instagram?: string; facebook?: string };
+export type Impostazioni = {
+  /** Firma del sito: apertura della home e footer */
+  motto?: string;
+  instagram?: string;
+  facebook?: string;
+};
 
 export type Privacy = {
   titolo: string;
@@ -176,8 +181,6 @@ export const homepage: Homepage = {
   hero: {
     titolo: "Mandala Interiore",
     sottotitolo: "con Roxana Zlate",
-    frase:
-      "Uno spazio di consapevolezza e trasformazione per ritrovare il tuo centro e la tua vera essenza.",
     testo: testo(
       "Ti accompagno attraverso percorsi di Counseling Transpersonale radicati nella Biotransenergetica, la creazione dei Mandala e le pratiche di Yoga e Meditazione, per risvegliare le tue qualità più autentiche.",
     ),
@@ -533,6 +536,7 @@ export const contatti: Contatti = {
 };
 
 export const impostazioni: Impostazioni = {
+  motto: "L’arte di ritornare a Sé",
   instagram: "https://www.instagram.com/mandala.univers/",
   facebook: "https://www.facebook.com/zlate.roxana",
 };

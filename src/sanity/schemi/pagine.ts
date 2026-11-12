@@ -75,8 +75,7 @@ export const homepage = schede(
           title: "Sottotitolo (in corsivo calligrafico)",
           type: "string",
         }),
-        campoFrase(),
-        campoTesto(),
+        campoTesto("Testo (la frase in corsivo sopra è il motto, in “Impostazioni del sito”)"),
       ]),
       sezione("eventi", "Sezione Eventi", [campoTitolo(), campoFrase()]),
       sezione("chiavi", "Sezione Chiavi", [
@@ -438,6 +437,14 @@ export const impostazioni = defineType({
   title: "Impostazioni del sito",
   type: "document",
   fields: [
+    defineField({
+      name: "motto",
+      title: "Motto",
+      description:
+        "Compare in apertura della homepage e sotto il logo in fondo a ogni pagina.",
+      type: "string",
+      validation: (r) => r.max(60).warning("Meglio breve: una riga."),
+    }),
     defineField({
       name: "instagram",
       title: "Profilo Instagram",

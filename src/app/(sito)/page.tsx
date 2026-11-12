@@ -10,7 +10,7 @@ import Foto from "@/components/Foto";
 import TestoRicco from "@/components/TestoRicco";
 import InvitoFinale from "@/components/InvitoFinale";
 import { leggiEventi } from "@/sanity/contenuti";
-import { leggiChiavi, leggiHomepage } from "@/sanity/pagine";
+import { leggiChiavi, leggiHomepage, leggiImpostazioni } from "@/sanity/pagine";
 
 export async function generateMetadata(): Promise<Metadata> {
   const { seo } = await leggiHomepage();
@@ -21,7 +21,12 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function Home() {
-  const [pagina, eventi, chiavi] = await Promise.all([leggiHomepage(), leggiEventi(), leggiChiavi()]);
+  const [pagina, eventi, chiavi, { motto }] = await Promise.all([
+    leggiHomepage(),
+    leggiEventi(),
+    leggiChiavi(),
+    leggiImpostazioni(),
+  ]);
   const { hero, storia, mandala } = pagina;
 
   return (
@@ -47,7 +52,7 @@ export default async function Home() {
             </p>
           )}
           <div className="font-body mt-3 flex max-w-xl flex-col gap-3">
-            {hero.frase && <p className="italic text-lg sm:text-xl">{hero.frase}</p>}
+            {motto && <p className="italic text-lg sm:text-xl">{motto}</p>}
             <TestoRicco valore={hero.testo} classe="text-base sm:text-lg" />
           </div>
         </section>
