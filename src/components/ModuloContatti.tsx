@@ -58,7 +58,8 @@ export default function ModuloContatti() {
       <div ref={conferma} tabIndex={-1} role="status" className="flex flex-col gap-4 outline-none">
         <p className="font-heading text-heading text-lg font-semibold">Grazie, messaggio ricevuto.</p>
         <p className="font-body text-lg">
-          Ti risponderò il prima possibile all&rsquo;indirizzo email che hai indicato.
+          Ti risponderò il prima possibile all&rsquo;indirizzo email che hai indicato,
+          dove trovi anche una mail di conferma.
         </p>
         <button
           onClick={() => setStato("pronto")}
