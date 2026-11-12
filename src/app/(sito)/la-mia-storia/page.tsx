@@ -13,7 +13,7 @@ const ICONE = ["accoglienza", "ascolto", "trasformazione"] as const;
 
 export async function generateMetadata(): Promise<Metadata> {
   const pagina = await leggiLaMiaStoria();
-  return metadatiPagina(pagina.hero.titolo, pagina.seo);
+  return metadatiPagina(pagina.hero.titolo, pagina.seo, "/la-mia-storia");
 }
 
 export default async function LaMiaStoria() {

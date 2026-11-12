@@ -13,7 +13,7 @@ import { metadatiPagina } from "@/lib/metadati";
 
 export async function generateMetadata(): Promise<Metadata> {
   const pagina = await leggiPaginaMandala();
-  return metadatiPagina(pagina.hero.titolo, pagina.seo);
+  return metadatiPagina(pagina.hero.titolo, pagina.seo, "/mandala");
 }
 
 export default async function Mandala() {

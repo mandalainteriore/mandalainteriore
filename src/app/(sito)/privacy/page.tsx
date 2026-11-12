@@ -8,7 +8,7 @@ import { metadatiPagina } from "@/lib/metadati";
 
 export async function generateMetadata(): Promise<Metadata> {
   const pagina = await leggiPrivacy();
-  return metadatiPagina(pagina.titolo, pagina.seo);
+  return metadatiPagina(pagina.titolo, pagina.seo, "/privacy");
 }
 
 export default async function Privacy() {

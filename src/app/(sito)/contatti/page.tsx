@@ -10,7 +10,7 @@ import { metadatiPagina } from "@/lib/metadati";
 
 export async function generateMetadata(): Promise<Metadata> {
   const pagina = await leggiContatti();
-  return metadatiPagina(pagina.hero.titolo, pagina.seo);
+  return metadatiPagina(pagina.hero.titolo, pagina.seo, "/contatti");
 }
 
 const etichetta = "font-heading text-heading text-xs font-semibold uppercase tracking-[0.03em]";

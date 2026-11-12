@@ -45,3 +45,8 @@ next-env.d.ts
 
 # File di esempio delle impostazioni (senza valori segreti)
 !.env.example
+
+# configurazioni locali degli strumenti di sviluppo
+/.claude/
+/AGENTS.md
+/CLAUDE.md

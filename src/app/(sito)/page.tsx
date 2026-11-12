@@ -10,27 +10,48 @@ import Foto from "@/components/Foto";
 import TestoRicco from "@/components/TestoRicco";
 import InvitoFinale from "@/components/InvitoFinale";
 import { leggiEventi } from "@/sanity/contenuti";
-import { leggiChiavi, leggiHomepage, leggiImpostazioni } from "@/sanity/pagine";
+import { leggiChiavi, leggiContatti, leggiHomepage, leggiImpostazioni } from "@/sanity/pagine";
+import DatiStrutturati from "@/components/DatiStrutturati";
+import { datiSito } from "@/lib/datiStrutturati";
+import { OPEN_GRAPH_BASE } from "@/lib/metadati";
 
 export async function generateMetadata(): Promise<Metadata> {
   const { seo } = await leggiHomepage();
+  const titolo = seo?.titolo || "Mandala Interiore - Roxana Zlate";
   return {
-    ...(seo?.titolo ? { title: { absolute: seo.titolo } } : {}),
+    title: { absolute: titolo },
     ...(seo?.descrizione ? { description: seo.descrizione } : {}),
+    alternates: { canonical: "/" },
+    openGraph: {
+      ...OPEN_GRAPH_BASE,
+      title: titolo,
+      ...(seo?.descrizione ? { description: seo.descrizione } : {}),
+      url: "/",
+    },
   };
 }
 
 export default async function Home() {
-  const [pagina, eventi, chiavi, { motto }] = await Promise.all([
+  const [pagina, eventi, chiavi, impostazioni, contatti] = await Promise.all([
     leggiHomepage(),
     leggiEventi(),
     leggiChiavi(),
     leggiImpostazioni(),
+    leggiContatti(),
   ]);
+  const { motto } = impostazioni;
   const { hero, storia, mandala } = pagina;
 
   return (
     <>
+      <DatiStrutturati
+        dati={datiSito({
+          descrizione: pagina.seo?.descrizione,
+          contatti,
+          impostazioni,
+          foto: pagina.storia.foto?.src,
+        })}
+      />
       <main className="relative flex min-h-svh flex-col items-center justify-center overflow-hidden pt-28 pb-32">
         <Image
           src="/sfondo_pergamena.jpg"
@@ -94,7 +115,8 @@ export default async function Home() {
 
         <Divider className="text-heading h-4 w-40" />
 
-        <div className="grid max-w-4xl grid-cols-1 gap-10 sm:grid-cols-2 sm:gap-12 lg:grid-cols-3 lg:gap-14">
+        {/* Righe centrate: su tablet (due per riga) la terza chiave sta al centro, non da sola a sinistra. */}
+        <div className="flex w-full max-w-4xl flex-wrap justify-center gap-10 sm:gap-12 lg:gap-14 [&>*]:w-full sm:[&>*]:w-[calc((100%-3rem)/2)] lg:[&>*]:w-[calc((100%-7rem)/3)]">
           {chiavi.map((chiave) => (
             <Link
               key={chiave.href}
@@ -120,7 +142,7 @@ export default async function Home() {
 
       <section
         id="storia"
-        className="grid grid-cols-1 items-center justify-items-center gap-8 px-6 py-16 md:h-screen md:grid-cols-2 md:overflow-hidden md:py-8 md:gap-6 md:px-16"
+        className="grid grid-cols-1 items-center justify-items-center gap-8 px-6 py-16 md:h-screen md:grid-cols-2 md:overflow-hidden md:py-8 md:portrait:h-auto md:portrait:py-24 md:gap-6 md:px-16"
       >
         <div className="border-heading/20 relative aspect-[4/5] h-72 shrink-0 overflow-hidden rounded-lg border md:h-96">
           <Foto foto={storia.foto} sizes="(min-width: 768px) 308px, 230px" />
@@ -151,7 +173,7 @@ export default async function Home() {
 
       <section
         id="mandala"
-        className="grid grid-cols-1 items-center justify-items-center gap-8 px-6 py-16 md:h-screen md:grid-cols-2 md:overflow-hidden md:py-8 md:gap-6 md:px-16"
+        className="grid grid-cols-1 items-center justify-items-center gap-8 px-6 py-16 md:h-screen md:grid-cols-2 md:overflow-hidden md:py-8 md:portrait:h-auto md:portrait:py-24 md:gap-6 md:px-16"
       >
         <div className="order-2 flex max-w-md flex-col items-start gap-4 text-left md:order-1">
           <h2 className="font-heading text-heading text-3xl font-semibold tracking-tight">

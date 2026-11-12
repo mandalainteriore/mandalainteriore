@@ -7,6 +7,9 @@ import SiteFooter from "@/components/SiteFooter";
 import Divider from "@/components/Divider";
 import { formattaData } from "@/data/eventi";
 import { leggiEventi, leggiEvento } from "@/sanity/contenuti";
+import DatiStrutturati from "@/components/DatiStrutturati";
+import { datiEvento } from "@/lib/datiStrutturati";
+import { OPEN_GRAPH_BASE, NOME_SITO } from "@/lib/metadati";
 
 export async function generateStaticParams() {
   const eventi = await leggiEventi();
@@ -19,9 +22,20 @@ export async function generateMetadata({
   const { slug } = await params;
   const evento = await leggiEvento(slug);
   if (!evento) return {};
+  const percorso = `/eventi/${evento.slug}`;
   return {
     title: evento.titolo,
     description: evento.descrizione,
+    alternates: { canonical: percorso },
+    openGraph: {
+      ...OPEN_GRAPH_BASE,
+      title: `${evento.titolo} · ${NOME_SITO}`,
+      description: evento.descrizione,
+      url: percorso,
+      // La locandina come anteprima quando l'evento viene condiviso.
+      images: [{ url: evento.immagine, alt: evento.titolo }],
+    },
+    twitter: { card: "summary_large_image", images: [evento.immagine] },
   };
 }
 
@@ -34,6 +48,7 @@ export default async function PaginaEvento({
 
   return (
     <>
+      <DatiStrutturati dati={datiEvento(evento)} />
       <main className="flex flex-col items-center gap-6 px-6 pt-32 md:pt-40 pb-12 text-center">
         <Link
           href="/#eventi"

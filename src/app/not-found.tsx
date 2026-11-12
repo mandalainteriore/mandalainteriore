@@ -13,7 +13,7 @@ export default function NonTrovata() {
   return (
     <>
       <Navbar />
-      <main className="relative flex min-h-[90svh] flex-col items-center justify-center gap-6 overflow-hidden px-6 pt-28 pb-16 text-center">
+      <main className="relative flex min-h-[90svh] md:portrait:min-h-[60svh] flex-col items-center justify-center gap-6 overflow-hidden px-6 pt-28 pb-16 text-center">
         <Image
           src="/sfondo_pergamena.jpg"
           alt=""

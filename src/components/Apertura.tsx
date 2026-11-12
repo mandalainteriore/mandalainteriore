@@ -15,8 +15,9 @@ export default function Apertura({
   sfondoMobile?: Foto;
   classeSenzaMobile?: string;
 }) {
+  // Su tablet in verticale lo schermo è molto alto: lì l'apertura è più bassa.
   return (
-    <main className="relative flex h-[90svh] flex-col items-center justify-center overflow-hidden">
+    <main className="relative flex h-[90svh] flex-col items-center justify-center overflow-hidden md:portrait:h-[70svh]">
       {sfondo?.src && (
         <SfondoResponsive
           src={sfondo.src}

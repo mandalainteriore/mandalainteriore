@@ -6,7 +6,7 @@ import Apertura from "./Apertura";
 import Foto from "./Foto";
 import TestoRicco from "./TestoRicco";
 import InvitoFinale from "./InvitoFinale";
-import { leggiChiave } from "@/sanity/pagine";
+import { CHIAVI, leggiChiave } from "@/sanity/pagine";
 import { metadatiPagina } from "@/lib/metadati";
 import type { Chiave, Foto as TipoFoto, IdChiave } from "@/data/pagine";
 
@@ -15,7 +15,7 @@ const ICONE = ["ascolto", "presenza", "trasformazione"] as const;
 
 export async function metadatiChiave(id: IdChiave): Promise<Metadata> {
   const chiave = await leggiChiave(id);
-  return metadatiPagina(chiave.titolo, chiave.seo);
+  return metadatiPagina(chiave.titolo, chiave.seo, CHIAVI[id].href);
 }
 
 function Sezione({

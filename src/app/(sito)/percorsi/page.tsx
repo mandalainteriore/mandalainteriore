@@ -26,7 +26,7 @@ function Elenco({ voci }: { voci: string[] }) {
 
 export async function generateMetadata(): Promise<Metadata> {
   const pagina = await leggiPercorsi();
-  return metadatiPagina(pagina.hero.titolo, pagina.seo);
+  return metadatiPagina(pagina.hero.titolo, pagina.seo, "/percorsi");
 }
 
 export default async function Percorsi() {
@@ -49,7 +49,7 @@ export default async function Percorsi() {
           </p>
         )}
 
-        <ul className="mt-4 mb-2 grid w-full max-w-4xl grid-cols-1 gap-4 md:grid-cols-3">
+        <ul className="mt-4 mb-2 grid w-full max-w-4xl grid-cols-1 gap-4 lg:grid-cols-3">
           {chiavi.map((chiave) => (
             <li key={chiave.href}>
               <Link
