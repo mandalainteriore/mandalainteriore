@@ -4,13 +4,18 @@ import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import MandalaLogo from "./MandalaLogo";
 
-const chiavi = [
-  { titolo: "Counseling transpersonale – Biotransenergetica", href: "/counseling-transpersonale" },
-  { titolo: "Yoga Anukalana e meditazione", href: "/yoga-anukalana-meditazione" },
-  { titolo: "Mandala – Creatività consapevole", href: "/mandala-creativita-consapevole" }
-];
+/** Voce del sottomenu "Chiavi": il nome arriva dal pannello (vedi NavbarSito). */
+export type VoceMenu = { titolo: string; href: string };
 
-function MenuMobile({ aperto, onClose }: { aperto: boolean; onClose: () => void }) {
+function MenuMobile({
+  aperto,
+  onClose,
+  chiavi,
+}: {
+  aperto: boolean;
+  onClose: () => void;
+  chiavi: VoceMenu[];
+}) {
   const [chiaviAperte, setChiaviAperte] = useState(false);
 
   useEffect(() => {
@@ -81,7 +86,7 @@ function MenuMobile({ aperto, onClose }: { aperto: boolean; onClose: () => void 
             <div id="menu-mobile-chiavi" className="flex flex-col items-center gap-3">
               {chiavi.map((chiave) => (
                 <Link
-                  key={chiave.titolo}
+                  key={chiave.href}
                   href={chiave.href}
                   onClick={onClose}
                   className="font-body text-lg font-normal normal-case tracking-normal italic hover:opacity-70 transition-opacity"
@@ -112,7 +117,7 @@ function MenuMobile({ aperto, onClose }: { aperto: boolean; onClose: () => void 
   );
 }
 
-export default function Navbar() {
+export default function Navbar({ chiavi }: { chiavi: VoceMenu[] }) {
   const [open, setOpen] = useState(false);
   const [menuMobile, setMenuMobile] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
@@ -148,7 +153,7 @@ export default function Navbar() {
         </button>
       </div>
 
-      <MenuMobile aperto={menuMobile} onClose={chiudiMenuMobile} />
+      <MenuMobile aperto={menuMobile} onClose={chiudiMenuMobile} chiavi={chiavi} />
 
       {/* Desktop */}
       <nav className="relative hidden items-center justify-center xl:flex">
@@ -169,7 +174,7 @@ export default function Navbar() {
               <div className="border-heading/20 bg-background absolute left-1/2 top-full mt-3 flex w-72 -translate-x-1/2 flex-col gap-1 rounded-lg border py-2 shadow-lg normal-case">
                 {chiavi.map((chiave) => (
                   <Link
-                    key={chiave.titolo}
+                    key={chiave.href}
                     href={chiave.href}
                     onClick={() => setOpen(false)}
                     className="font-body text-heading px-4 py-2 text-base tracking-normal hover:opacity-70 transition-opacity"

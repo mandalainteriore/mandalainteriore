@@ -1,4 +1,4 @@
-import Navbar from "@/components/Navbar";
+import NavbarSito from "@/components/NavbarSito";
 import Loader from "@/components/Loader";
 
 // Layout delle pagine pubbliche: il pannello di Sanity su /studio resta fuori da questo gruppo,
@@ -7,7 +7,7 @@ export default function LayoutSito({ children }: LayoutProps<"/">) {
   return (
     <>
       <Loader />
-      <Navbar />
+      <NavbarSito />
       {children}
     </>
   );

@@ -4,10 +4,10 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 
 const oggetti = [
-  "Informazioni generali",
-  "Counseling transpersonale",
-  "Yoga Anukalana e meditazione",
-  "Mandala – Creatività consapevole",
+  "Informazioni Generali",
+  "Counseling Transpersonale",
+  "Yoga Anukalana e Meditazione",
+  "Mandala – Creatività Consapevole",
 ];
 
 const etichetta =

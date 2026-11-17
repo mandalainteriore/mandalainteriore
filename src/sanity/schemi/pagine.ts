@@ -273,7 +273,13 @@ export const chiave = schede(
       defineField({
         name: "titoloPagina",
         title: "Titolo in apertura della pagina (facoltativo)",
-        description: "Solo se diverso dal titolo usato nelle card e nel menu.",
+        description: "Solo se diverso dal titolo usato nelle card.",
+        type: "string",
+      }),
+      defineField({
+        name: "titoloMenu",
+        title: "Nome nel menu (facoltativo)",
+        description: "Come compare sotto “Chiavi” nel menu in alto. Se vuoto si usa il titolo.",
         type: "string",
       }),
       defineField({
@@ -359,7 +365,7 @@ export const chiave = schede(
     [
       "card",
       "Titolo e card",
-      ["titolo", "titoloPagina", "sottotitolo", "descrizione", "sintesi"],
+      ["titolo", "titoloPagina", "titoloMenu", "sottotitolo", "descrizione", "sintesi"],
     ],
     ["apertura", "Immagine di apertura", ["sfondo", "sfondoMobile"]],
     [

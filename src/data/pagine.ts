@@ -77,6 +77,8 @@ export type Chiave = {
   titolo: string;
   /** Titolo in apertura della pagina, se diverso da quello delle card */
   titoloPagina?: string;
+  /** Nome nel menu in alto, se diverso dal titolo */
+  titoloMenu?: string;
   sottotitolo?: string;
   /** Testo della card in homepage */
   descrizione: string;
@@ -381,7 +383,8 @@ const invitoChiave: Invito = {
 
 export const chiavi: Record<IdChiave, Chiave> = {
   "chiave-counseling": {
-    titolo: "Counseling transpersonale",
+    titolo: "Counseling Transpersonale",
+    titoloMenu: "Counseling Transpersonale – Biotransenergetica",
     sottotitolo: "Biotransenergetica",
     descrizione:
       "Uno spazio autentico di consapevolezza per ritrovare il tuo centro e risvegliare le tue potenzialità più profonde.",
@@ -412,7 +415,7 @@ export const chiavi: Record<IdChiave, Chiave> = {
     },
   },
   "chiave-yoga": {
-    titolo: "Yoga Anukalana e meditazione",
+    titolo: "Yoga Anukalana e Meditazione",
     titoloPagina: "Yoga Anukalana e Meditazione",
     descrizione:
       "Movimento, respiro e presenza si uniscono per riportare equilibrio, vitalità e armonia nella tua vita.",
@@ -443,7 +446,7 @@ export const chiavi: Record<IdChiave, Chiave> = {
     },
   },
   "chiave-mandala": {
-    titolo: "Mandala – Creatività consapevole",
+    titolo: "Mandala – Creatività Consapevole",
     sottotitolo: "Geometrie sacre",
     descrizione:
       "Colori, simboli e geometrie sacre diventano strumenti per dare forma al tuo mondo interiore e favorire la trasformazione.",

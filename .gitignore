@@ -50,3 +50,6 @@ next-env.d.ts
 /.claude/
 /AGENTS.md
 /CLAUDE.md
+
+# documenti per la cliente (PDF e sorgenti)
+/documentazione/

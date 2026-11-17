@@ -3,10 +3,10 @@
 // La chiave di Brevo resta sul server: il browser non la vede mai.
 
 const OGGETTI = [
-  "Informazioni generali",
-  "Counseling transpersonale",
-  "Yoga Anukalana e meditazione",
-  "Mandala – Creatività consapevole",
+  "Informazioni Generali",
+  "Counseling Transpersonale",
+  "Yoga Anukalana e Meditazione",
+  "Mandala – Creatività Consapevole",
 ] as const;
 
 const EMAIL_VALIDA = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
